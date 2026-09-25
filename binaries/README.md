@@ -24,3 +24,12 @@ sha256sum -c SHA256SUMS
 sudo tar xJf pg18fc-afdoltob.tar.xz -C /opt
 /opt/pg18fc-afdoltob/bin/postgres --version
 ```
+
+**Client tools and `libpq`:** the tree was cloned from the afdoltoq install, so `psql` and the other
+client tools have `RUNPATH=/opt/pg18fc-afdoltoq/lib`. The server binary (`bin/postgres`) does not use
+`libpq` and is unaffected. For the client tools, either add a symlink or set `LD_LIBRARY_PATH`:
+
+```
+sudo ln -sfn /opt/pg18fc-afdoltob /opt/pg18fc-afdoltoq
+# or: export LD_LIBRARY_PATH=/opt/pg18fc-afdoltob/lib
+```
