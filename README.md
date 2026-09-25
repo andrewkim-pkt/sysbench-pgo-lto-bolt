@@ -281,6 +281,7 @@ scripts/harness/              full-CPU: fc-calib.sh, fc-mirror.sh, fc-chain-benc
                               full-box 1200c: fb-mirror.sh + fb-arm.sh;  single-node: sb-mirror.sh, sb-calib-lo.sh
 profiles/full-cpu/            pg18.afdo, bolt-<arm>/profile.fdata, PGO .gcda tarball used for the result above
 profiles/single-node/         the same for the node-0 campaign
+binaries/                     pg18fc-afdoltob.tar.xz: the benchmarked afdoltob install tree (see binaries/README.md)
 results/<campaign>/           runs.tsv, summary.txt, campaign.log, per-process sysbench logs, wait-event samples
 logs/full-cpu/                profiling chain output, perf record post-checks, build gates
 ```
