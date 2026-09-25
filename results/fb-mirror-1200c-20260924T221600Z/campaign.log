@@ -1,0 +1,22 @@
+campaign 20260924T221600Z conns=3x400 warm=600 meas=180 host=<SERVER_PRIVATE_IP>  A: base pgo pgolto afdo afdolto pgob pgoltob afdob afdoltob  B: afdoltob afdob pgoltob pgob afdolto afdo pgolto pgo base
+[22:30:09] A/1 base tps=43986.90 srv_busy=37.2% cli_busy=20.8% p95=39.97 err/s=0.045
+[22:44:25] A/2 pgo tps=43615.87 srv_busy=32.2% cli_busy=20.8% p95=38.49 err/s=0.017
+[22:58:38] A/3 pgolto tps=44524.88 srv_busy=31.3% cli_busy=20.8% p95=35.73 err/s=0.045
+[23:12:51] A/4 afdo tps=43288.19 srv_busy=33.0% cli_busy=20.9% p95=39.48 err/s=0.039
+[23:27:06] A/5 afdolto tps=44495.83 srv_busy=35.9% cli_busy=20.7% p95=37.74 err/s=0.017
+[23:41:21] A/6 pgob tps=43059.36 srv_busy=31.3% cli_busy=20.6% p95=40.23 err/s=0.056
+[23:55:35] A/7 pgoltob tps=43094.20 srv_busy=32.1% cli_busy=20.0% p95=39.59 err/s=0.050
+[00:09:49] A/8 afdob tps=44334.62 srv_busy=32.3% cli_busy=21.1% p95=38.10 err/s=0.050
+[00:23:59] A/9 afdoltob tps=43707.89 srv_busy=33.3% cli_busy=20.8% p95=38.16 err/s=0.029
+[00:38:13] B/1 afdoltob tps=44504.60 srv_busy=32.3% cli_busy=20.8% p95=37.28 err/s=0.061
+[00:52:30] B/2 afdob tps=44774.86 srv_busy=32.5% cli_busy=21.2% p95=38.41 err/s=0.034
+[01:06:42] B/3 pgoltob tps=44537.07 srv_busy=31.1% cli_busy=21.0% p95=36.84 err/s=0.040
+[01:20:56] B/4 pgob tps=43541.65 srv_busy=31.6% cli_busy=20.9% p95=40.05 err/s=0.040
+[01:35:09] B/5 afdolto tps=43536.61 srv_busy=36.8% cli_busy=20.4% p95=39.04 err/s=0.045
+[01:49:22] B/6 afdo tps=43345.53 srv_busy=32.7% cli_busy=20.7% p95=39.84 err/s=0.023
+resume 20260925T025628Z: B:7:pgolto B:8:pgo B:9:base
+resume 20260925T053235Z: B:7:pgolto B:8:pgo B:9:base
+[05:51:49] B/7 pgolto tps=44545.65 srv_busy=31.6% cli_busy=20.6% p95=36.62 err/s=0.033
+[06:05:59] B/8 pgo tps=43629.49 srv_busy=31.9% cli_busy=20.7% p95=38.16 err/s=0.061
+[06:20:10] B/9 base tps=42822.86 srv_busy=37.3% cli_busy=19.8% p95=39.72 err/s=0.050
+MIRROR_DONE

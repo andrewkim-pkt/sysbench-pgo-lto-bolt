@@ -1,0 +1,17 @@
+=== [10:07:09] perf2bolt afdoq
+BOLT-INFO: pre-processing profile using perf data aggregator
+PERF2BOLT: read 23481670 samples and 750453847 LBR entries
+PERF2BOLT: 370090 samples (1.6%) were ignored
+PERF2BOLT: traces mismatching disassembled function contents: 0 (0.0%)
+    fdata size: 1592771
+=== [10:14:28] llvm-bolt -> afdob
+BOLT-INFO: profile for 1 objects was ignored
+BOLT-INFO: basic block reordering modified layout of 781 functions (49.43% of profiled, 5.19% of total)
+BOLT-INFO: splitting separates 354622 hot bytes from 695244 cold bytes (33.78% of split functions is hot).
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+237864248448cf1b5d12e2978d05ca20  postgres.bolt
+=== [10:14:32] BOLT_OK afdob copied to server

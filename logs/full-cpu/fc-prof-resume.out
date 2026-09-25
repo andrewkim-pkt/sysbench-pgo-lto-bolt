@@ -1,0 +1,127 @@
+=== [09:15:08] fc-prof start_at=7 load=12x400
+=== [09:15:08] record bolt pg18fc-pgoltoq
+exe=/opt/pg18fc-pgoltoq/bin/postgres aff=0-191 max_connections=6500
+perf rc=0
+=== [09:23:33] bolt pgoltoq: server_busy=65.0% client_busy=29.7% tps=60254
+size=2106846487
+brstack present (of 200): 200
+dso share:
+    94.23%  postgres                               
+     4.00%  libc.so.6                              
+     1.47%  libzstd.so.1.5.5                       
+     0.21%  [vdso]                                 
+RECORD_OK bolt pgoltoq
+=== [09:27:19] record bolt pg18fc-afdoq
+exe=/opt/pg18fc-afdoq/bin/postgres aff=0-191 max_connections=6500
+perf rc=0
+=== [09:35:47] bolt afdoq: server_busy=67.4% client_busy=29.5% tps=59589
+size=2414878548
+brstack present (of 200): 200
+dso share:
+    93.83%  postgres                               
+     4.47%  libc.so.6                              
+     1.55%  libzstd.so.1.5.5                       
+     0.09%  [vdso]                                 
+RECORD_OK bolt afdoq
+=== [09:40:24] record bolt pg18fc-afdoltoq
+exe=/opt/pg18fc-afdoltoq/bin/postgres aff=0-191 max_connections=6500
+perf rc=0
+=== [09:48:50] bolt afdoltoq: server_busy=71.2% client_busy=30.2% tps=61024
+size=2446295040
+brstack present (of 200): 200
+dso share:
+    94.33%  postgres                               
+     4.07%  libc.so.6                              
+     1.45%  libzstd.so.1.5.5                       
+     0.10%  [vdso]                                 
+RECORD_OK bolt afdoltoq
+=== [09:53:18] 10 bolt pgoq
+=== [09:53:39] perf2bolt pgoq
+BOLT-INFO: pre-processing profile using perf data aggregator
+PERF2BOLT: read 21681420 samples and 692674012 LBR entries
+PERF2BOLT: 348488 samples (1.6%) were ignored
+PERF2BOLT: traces mismatching disassembled function contents: 0 (0.0%)
+    fdata size: 1648969
+=== [10:00:33] llvm-bolt -> pgob
+BOLT-WARNING: split function detected on input : brin_desummarize_range.cold. The support is limited in relocation mode
+BOLT-WARNING: skipped 22 functions due to cold fragments
+BOLT-INFO: profile for 1 objects was ignored
+BOLT-INFO: basic block reordering modified layout of 578 functions (36.58% of profiled, 2.92% of total)
+BOLT-INFO: splitting separates 355457 hot bytes from 570366 cold bytes (38.39% of split functions is hot).
+BOLT-WARNING: failed to patch entries in TidStoreSetBlockOffsets.cold/1(*2). The function will not be optimized.
+BOLT-WARNING: failed to patch entries in transformStmt.cold/1(*2). The function will not be optimized.
+BOLT-WARNING: failed to patch entries in ComputeXidHorizons.cold/1(*2). The function will not be optimized.
+f52eb72ef0025744ff1c290d51ea4da6  postgres.bolt
+=== [10:00:37] BOLT_OK pgob copied to server
+pgob <- pgoq : postgres (PostgreSQL) 18.3  md5=f52eb72ef002  bolt_note=4
+=== [10:00:38] 10 bolt pgoltoq
+=== [10:00:58] perf2bolt pgoltoq
+BOLT-INFO: pre-processing profile using perf data aggregator
+PERF2BOLT: read 18508218 samples and 590894702 LBR entries
+PERF2BOLT: 275394 samples (1.5%) were ignored
+PERF2BOLT: traces mismatching disassembled function contents: 0 (0.0%)
+    fdata size: 1987749
+=== [10:06:40] llvm-bolt -> pgoltob
+BOLT-WARNING: split function detected on input : get_progname.cold. The support is limited in relocation mode
+BOLT-WARNING: skipped 26 functions due to cold fragments
+BOLT-INFO: profile for 1 objects was ignored
+BOLT-INFO: basic block reordering modified layout of 627 functions (44.09% of profiled, 2.93% of total)
+BOLT-INFO: splitting separates 436989 hot bytes from 672776 cold bytes (39.38% of split functions is hot).
+BOLT-WARNING: failed to patch entries in transformStmt.cold/1. The function will not be optimized.
+BOLT-WARNING: failed to patch entries in heap_hot_search_buffer. The function will not be optimized.
+BOLT-WARNING: failed to patch entries in SendRowDescriptionMessage. The function will not be optimized.
+a58b2d024d8dda4fe01453c55534edf4  postgres.bolt
+=== [10:06:45] BOLT_OK pgoltob copied to server
+pgoltob <- pgoltoq : postgres (PostgreSQL) 18.3  md5=a58b2d024d8d  bolt_note=4
+=== [10:06:46] 10 bolt afdoq
+=== [10:07:09] perf2bolt afdoq
+BOLT-INFO: pre-processing profile using perf data aggregator
+PERF2BOLT: read 23481670 samples and 750453847 LBR entries
+PERF2BOLT: 370090 samples (1.6%) were ignored
+PERF2BOLT: traces mismatching disassembled function contents: 0 (0.0%)
+    fdata size: 1592771
+=== [10:14:28] llvm-bolt -> afdob
+BOLT-INFO: profile for 1 objects was ignored
+BOLT-INFO: basic block reordering modified layout of 781 functions (49.43% of profiled, 5.19% of total)
+BOLT-INFO: splitting separates 354622 hot bytes from 695244 cold bytes (33.78% of split functions is hot).
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+237864248448cf1b5d12e2978d05ca20  postgres.bolt
+=== [10:14:32] BOLT_OK afdob copied to server
+afdob <- afdoq : postgres (PostgreSQL) 18.3  md5=237864248448  bolt_note=4
+=== [10:14:33] 10 bolt afdoltoq
+=== [10:14:56] perf2bolt afdoltoq
+BOLT-INFO: pre-processing profile using perf data aggregator
+PERF2BOLT: read 22394925 samples and 715571283 LBR entries
+PERF2BOLT: 330469 samples (1.5%) were ignored
+PERF2BOLT: traces mismatching disassembled function contents: 0 (0.0%)
+    fdata size: 1725476
+=== [10:22:13] llvm-bolt -> afdoltob
+BOLT-INFO: profile for 1 objects was ignored
+BOLT-INFO: basic block reordering modified layout of 1080 functions (80.30% of profiled, 6.76% of total)
+BOLT-INFO: splitting separates 383185 hot bytes from 770583 cold bytes (33.21% of split functions is hot).
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+2d3b38b0dee15cade7abe9cbb87440bf  postgres.bolt
+=== [10:22:18] BOLT_OK afdoltob copied to server
+afdoltob <- afdoltoq : postgres (PostgreSQL) 18.3  md5=2d3b38b0dee1  bolt_note=4
+arm fc_md5 single-node_md5
+pgo e5a249fd62 541febfda0 
+pgoq 6fbddeb63e 75f3c215ff 
+pgolto 376318e19f 5150434da0 
+pgoltoq acd430de5b d4fcedfba9 
+afdo 3118898574 4f75c8c4e1 
+afdoq c8538d9db5 5a8d3342de 
+afdolto 38ef3c9db2 d9fed8d2b7 
+afdoltoq 50e2d86403 8309e19df0 
+pgob f52eb72ef0 56ad6e8954 
+pgoltob a58b2d024d 9d91b69d74 
+afdob 2378642484 6a863aad78 
+afdoltob 2d3b38b0de b02eea9a20 
+=== [10:22:23] FC_PROF_DONE

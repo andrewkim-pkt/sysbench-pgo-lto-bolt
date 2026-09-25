@@ -1,0 +1,20 @@
+campaign 20260924T085654Z threads=128 warm=600 meas=180  A: base pgo pgolto afdo afdolto pgob pgoltob afdob afdoltob  B: afdoltob afdob pgoltob pgob afdolto afdo pgolto pgo base
+[09:10:41] A/1 base tps=38055.66 busy=71.1% p95=8.09 err/s=0.000 tmpfs= 132G
+[09:24:50] A/2 pgo tps=43089.99 busy=71.9% p95=7.57 err/s=0.006 tmpfs= 132G
+[09:38:56] A/3 pgolto tps=44775.32 busy=72.2% p95=7.39 err/s=0.006 tmpfs= 132G
+[09:53:04] A/4 afdo tps=41473.51 busy=71.8% p95=7.70 err/s=0.006 tmpfs= 132G
+[10:07:11] A/5 afdolto tps=39783.40 busy=71.1% p95=7.91 err/s=0.011 tmpfs= 132G
+[10:21:19] A/6 pgob tps=43581.44 busy=71.9% p95=7.52 err/s=0.000 tmpfs= 132G
+[10:35:26] A/7 pgoltob tps=46034.46 busy=72.5% p95=7.26 err/s=0.011 tmpfs= 132G
+[10:49:34] A/8 afdob tps=43129.73 busy=71.9% p95=7.51 err/s=0.006 tmpfs= 132G
+[11:03:42] A/9 afdoltob tps=43305.72 busy=71.8% p95=7.54 err/s=0.000 tmpfs= 132G
+[11:17:51] B/1 afdoltob tps=43094.95 busy=71.7% p95=7.58 err/s=0.006 tmpfs= 132G
+[11:32:00] B/2 afdob tps=42795.82 busy=72.0% p95=7.58 err/s=0.006 tmpfs= 132G
+[11:46:07] B/3 pgoltob tps=46041.62 busy=72.5% p95=7.29 err/s=0.006 tmpfs= 132G
+[12:00:15] B/4 pgob tps=43272.94 busy=72.0% p95=7.58 err/s=0.006 tmpfs= 132G
+[12:14:24] B/5 afdolto tps=39703.42 busy=71.1% p95=7.92 err/s=0.006 tmpfs= 132G
+[12:28:33] B/6 afdo tps=41231.66 busy=71.6% p95=7.72 err/s=0.000 tmpfs= 132G
+[12:42:42] B/7 pgolto tps=44472.21 busy=72.0% p95=7.45 err/s=0.000 tmpfs= 132G
+[12:56:49] B/8 pgo tps=43023.95 busy=71.9% p95=7.56 err/s=0.006 tmpfs= 132G
+[13:10:57] B/9 base tps=38103.51 busy=71.2% p95=8.11 err/s=0.000 tmpfs= 132G
+MIRROR_DONE

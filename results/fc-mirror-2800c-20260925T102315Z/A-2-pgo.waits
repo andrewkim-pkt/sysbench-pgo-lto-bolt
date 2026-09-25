@@ -1,0 +1,8 @@
+10:49:22 Client:ClientRead|2672 CPU:-|104 IPC:ProcarrayGroupUpdate|20 Lock:transactionid|3 LWLock:WALInsert|2 
+10:49:48 Client:ClientRead|1946 IPC:ProcarrayGroupUpdate|625 LWLock:WALInsert|123 CPU:-|100 Timeout:SpinDelay|4 Lock:transactionid|3 
+10:50:13 Client:ClientRead|1710 IPC:ProcarrayGroupUpdate|554 LWLock:WALInsert|443 CPU:-|90 Lock:transactionid|2 Timeout:SpinDelay|1 LWLock:ProcArray|1 
+10:50:38 Client:ClientRead|2101 IPC:ProcarrayGroupUpdate|355 LWLock:WALInsert|260 CPU:-|81 Timeout:SpinDelay|3 LWLock:ProcArray|1 
+10:51:04 Client:ClientRead|1654 IPC:ProcarrayGroupUpdate|1025 CPU:-|110 LWLock:WALInsert|9 Lock:transactionid|2 Timeout:SpinDelay|1 
+10:51:29 Client:ClientRead|1468 LWLock:WALInsert|953 IPC:ProcarrayGroupUpdate|316 CPU:-|59 Lock:transactionid|3 LWLock:ProcArray|1 LWLock:BufferContent|1 
+10:51:54 IPC:ProcarrayGroupUpdate|1781 Client:ClientRead|853 LWLock:WALInsert|84 CPU:-|52 LWLock:ProcArray|26 Lock:transactionid|5 
+10:52:20 Client:ClientRead|1712 IPC:ProcarrayGroupUpdate|995 CPU:-|85 LWLock:WALInsert|4 Timeout:SpinDelay|2 LWLock:ProcArray|2 Lock:transactionid|1 

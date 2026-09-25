@@ -1,0 +1,6 @@
+22:55:33 Client:ClientRead|915 IPC:ProcarrayGroupUpdate|218 CPU:-|67 LWLock:ProcArray|1 
+22:55:59 Client:ClientRead|1020 CPU:-|181 
+22:56:24 Client:ClientRead|1116 CPU:-|73 IPC:ProcarrayGroupUpdate|10 LWLock:ProcArray|1 LWLock:WALInsert|1 
+22:56:49 Client:ClientRead|944 IPC:ProcarrayGroupUpdate|155 CPU:-|51 LWLock:WALInsert|50 Lock:transactionid|1 
+22:57:14 Client:ClientRead|1173 CPU:-|27 LWLock:ProcArray|1 
+22:57:40 Client:ClientRead|1117 CPU:-|83 Timeout:SpinDelay|1 

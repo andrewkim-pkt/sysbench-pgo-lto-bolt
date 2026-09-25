@@ -1,0 +1,4 @@
+=== [08:17:04] create_gcov
+    profile size: 1581949 bytes (old: 1,576,485)   top-level functions: 1780 (old good run: 2,439)
+87fc07c08eb00bb3426edd6daa5dd64e  pg18.afdo
+=== [08:23:35] AFDO_OK copied to server

@@ -1,0 +1,8 @@
+size=2446295040
+brstack present (of 200): 200
+dso share:
+    94.33%  postgres                               
+     4.07%  libc.so.6                              
+     1.45%  libzstd.so.1.5.5                       
+     0.10%  [vdso]                                 
+RECORD_OK bolt afdoltoq

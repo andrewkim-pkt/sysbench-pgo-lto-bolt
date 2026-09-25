@@ -1,0 +1,6 @@
+01:46:17 Client:ClientRead|1080 IPC:ProcarrayGroupUpdate|79 CPU:-|40 LWLock:ProcArray|2 
+01:46:43 Client:ClientRead|974 IPC:ProcarrayGroupUpdate|115 CPU:-|67 LWLock:WALInsert|43 LWLock:BufferContent|1 LWLock:ProcArray|1 
+01:47:08 Client:ClientRead|1069 CPU:-|67 LWLock:WALInsert|58 Timeout:SpinDelay|4 LWLock:ProcArray|2 IPC:ProcarrayGroupUpdate|1 
+01:47:33 Client:ClientRead|953 IPC:ProcarrayGroupUpdate|180 CPU:-|66 LWLock:ProcArray|1 LWLock:WALInsert|1 
+01:47:58 Client:ClientRead|1131 CPU:-|35 IPC:ProcarrayGroupUpdate|34 LWLock:ProcArray|1 
+01:48:24 Client:ClientRead|1012 CPU:-|75 LWLock:WALInsert|61 IPC:ProcarrayGroupUpdate|50 LWLock:ProcArray|1 LWLock:XidGen|1 Timeout:SpinDelay|1 

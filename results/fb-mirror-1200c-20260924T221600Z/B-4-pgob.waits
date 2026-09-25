@@ -1,0 +1,6 @@
+01:17:52 Client:ClientRead|1164 CPU:-|36 LWLock:ProcArray|1 
+01:18:17 Client:ClientRead|1133 CPU:-|49 IPC:ProcarrayGroupUpdate|18 LWLock:ProcArray|1 
+01:18:42 Client:ClientRead|1157 CPU:-|42 LWLock:ProcArray|1 IPC:ProcarrayGroupUpdate|1 
+01:19:07 Client:ClientRead|1163 CPU:-|38 
+01:19:33 Client:ClientRead|1156 CPU:-|40 IPC:ProcarrayGroupUpdate|5 
+01:19:58 Client:ClientRead|1173 CPU:-|23 IPC:ProcarrayGroupUpdate|4 LWLock:ProcArray|1 

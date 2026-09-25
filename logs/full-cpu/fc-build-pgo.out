@@ -1,0 +1,21 @@
+=== [08:00:30] pgo -> /opt/pg18fc-pgo  (node 0, cpus 0-31,96-127, -j64)
+  kept 935 .gcda
+  gate: version=[postgres (PostgreSQL) 18.3] .text=6827650 debug_line=0 rela.text=0 -O3_in_Makefile=1
+  gate: -fprofile-use in build log = 1371
+  OK pgo
+=== [08:00:59] pgoq -> /opt/pg18fc-pgoq  (node 0, cpus 0-31,96-127, -j64)
+  kept 935 .gcda
+  gate: version=[postgres (PostgreSQL) 18.3] .text=6827650 debug_line=3 rela.text=1 -O3_in_Makefile=1
+  gate: -fprofile-use in build log = 1371
+  OK pgoq
+=== [08:01:30] pgolto -> /opt/pg18fc-pgolto  (node 0, cpus 0-31,96-127, -j64)
+  kept 935 .gcda
+  gate: version=[postgres (PostgreSQL) 18.3] .text=8745010 debug_line=0 rela.text=0 -O3_in_Makefile=1
+  gate: -fprofile-use in build log = 1371
+  OK pgolto
+=== [08:02:18] pgoltoq -> /opt/pg18fc-pgoltoq  (node 0, cpus 0-31,96-127, -j64)
+  kept 935 .gcda
+  gate: version=[postgres (PostgreSQL) 18.3] .text=8745010 debug_line=3 rela.text=1 -O3_in_Makefile=1
+  gate: -fprofile-use in build log = 1371
+  OK pgoltoq
+BUILD_RC=0

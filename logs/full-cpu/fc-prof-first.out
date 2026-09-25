@@ -1,0 +1,26 @@
+=== [08:39:59] fc-prof start_at=6 load=9x400
+=== [08:39:59] record bolt pg18fc-pgoq
+exe=/opt/pg18fc-pgoq/bin/postgres aff=0-191 max_connections=4000
+perf rc=0
+=== [08:47:20] bolt pgoq: server_busy=63.1% client_busy=27.7% tps=59775
+size=2197696468
+brstack present (of 200): 200
+dso share:
+    95.54%  postgres               
+     2.71%  libc.so.6              
+     1.58%  libzstd.so.1.5.5       
+     0.12%  [vdso]                 
+RECORD_OK bolt pgoq
+=== [08:51:41] record bolt pg18fc-pgoltoq
+exe=/opt/pg18fc-pgoltoq/bin/postgres aff=0-191 max_connections=4000
+perf rc=0
+=== [08:59:02] bolt pgoltoq: server_busy=57.7% client_busy=28.1% tps=60660
+size=1912653209
+brstack present (of 200): 200
+dso share:
+    93.99%  postgres                               
+     4.00%  libc.so.6                              
+     1.70%  libzstd.so.1.5.5                       
+     0.22%  [vdso]                                 
+RECORD_BELOW_60 bolt pgoltoq
+=== [09:02:38] !!! record bolt pgoltoq not blessed

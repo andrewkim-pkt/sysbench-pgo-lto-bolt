@@ -1,0 +1,8 @@
+size=19973189824
+brstack present (of 200): 199
+dso share:
+    94.64%  postgres                               
+     5.12%  libc.so.6                              
+     0.18%  [vdso]                                 
+     0.06%  libm.so.6                              
+RECORD_OK afdo prep

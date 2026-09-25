@@ -1,0 +1,200 @@
+# PostgreSQL 18.3 PGO / LTO / AutoFDO / BOLT on sysbench oltp_read_write
+
+This repo holds a build matrix of PostgreSQL 18.3 binaries, each built with profile-guided optimization
+(PGO), link-time optimization (LTO), sample-based AutoFDO, and/or the BOLT post-link optimizer. Each
+binary was benchmarked against a plain `-O3` build with sysbench `oltp_read_write` on an AWS
+r8i.metal-48xl. All profiles were collected with postgres running on all 192 vCPUs, loaded from a
+separate client machine at more than 60% server CPU.
+
+The build, profiling and benchmark scripts are in [`scripts/`](scripts/). The profiles are in
+[`profiles/`](profiles/). The raw per-run logs are in [`results/`](results/).
+
+## Result (full-CPU campaign `fc-mirror-2800c-20260925T102315Z`)
+
+Mirrored A/B order, 2800 client connections, 600 s warm-up + 240 s measured per run, 18/18 runs clean.
+Server CPU was 60–68% busy.
+
+| arm | tps pass A | tps pass B | mean tps | vs base | server CPU per txn vs base | A/B spread |
+|---|---:|---:|---:|---:|---:|---:|
+| afdoltob | 61,771 | 63,579 | 62,675 | +6.12% | −5.4% | 2.88% |
+| pgob | 61,916 | 61,255 | 61,586 | +4.27% | −9.3% | 1.07% |
+| **pgoltob** | 61,412 | 61,569 | 61,491 | **+4.11%** | **−12.8%** | 0.25% |
+| afdob | 60,897 | 61,103 | 61,000 | +3.28% | −10.0% | 0.34% |
+| pgo | 60,480 | 60,921 | 60,701 | +2.78% | −6.3% | 0.73% |
+| afdolto | 59,778 | 61,250 | 60,514 | +2.46% | −0.7% | 2.43% |
+| afdo | 60,116 | 60,670 | 60,393 | +2.25% | −6.5% | 0.92% |
+| pgolto | 59,468 | 60,178 | 59,823 | +1.29% | −5.7% | 1.19% |
+| base | 59,278 | 58,845 | 59,062 | — | — | 0.73% |
+
+How to read this table:
+
+- **Every profiled arm beats base on tps, but the gaps are small.** At this load the server stops
+  scaling at about 60k tps. Server CPU per transaction (CPU busy % ÷ tps) is the clearer signal.
+- **pgoltob (PGO + LTO + BOLT) is the most reliable winner.** It is +4.1% on tps, uses 12.8% less CPU
+  per transaction than base, and its two passes agree within 0.25%.
+- **afdoltob's top tps is inside its own noise.** Its A/B spread (2.9%) is larger than its lead. Its
+  AutoFDO profile also never reaches the code (see [AutoFDO + LTO](#autofdo--lto-is-a-no-op-in-this-matrix)),
+  so it is really LTO + BOLT.
+
+Two earlier campaigns are also in [`results/`](results/). They used different setups, so quote each
+one with its setup:
+
+| campaign | setup | outcome |
+|---|---|---|
+| `sb-mirror-128T-20260924T085654Z` | postgres and profiling pinned to NUMA node 0 (64 vCPUs), 128 sysbench threads over loopback from the other nodes, 71–73% node-0 busy | pgoltob +20.90% (46,038 vs base 38,080 tps), pgolto +17.19%, pgob +14.04%, afdoltob +13.45%, pgo +13.07%, afdob +12.82%, afdo +8.60%, afdolto +4.37% |
+| `fb-mirror-1200c-20260924T221600Z` | single-node binaries, postgres on all 192 vCPUs, 1200 connections from the client, only 31–37% server CPU | tps all within ±2.7% of base (limited by client–server network latency, ~1,100/1,200 backends waiting in ClientRead). CPU per txn: pgolto −17.7%, pgoltob −16.0%, pgob −15.4%, afdob −15.3%, pgo −14.4%, afdoltob −13.3%, afdo −11.6%, afdolto −3.8% |
+
+## Test setup
+
+| | |
+|---|---|
+| Server | AWS r8i.metal-48xl, us-east-2a. Intel Xeon 6975P-C, 1 socket, 192 vCPUs as 3 NUMA nodes (node0 0-31,96-127; node1 32-63,128-159; node2 64-95,160-191), 1.5 TB RAM. Amazon Linux 2023, kernel 6.18.48. |
+| Client | AWS r8i.24xlarge (96 vCPUs), us-east-2c, same VPC. Different availability zone, ~1.2 ms round trip. |
+| PostgreSQL | REL_18_3 (commit `62d6c7d3df6`), built with gcc 14.2.1 (`gcc14-gcc`) |
+| Tools | perf 6.1 (server and client), llvm-bolt / perf2bolt 18.1.3 (client), AutoFDO `create_gcov` built from upstream `c0756f5` (client), sysbench 1.0.20 (client) |
+| Workload | sysbench `oltp_read_write`, 250 tables × 1M rows, `--rand-type=uniform` |
+| Server config | [`config/postgresql.conf`](config/postgresql.conf): `shared_buffers=200GB` on 1 GB hugepages, `synchronous_commit=off`, `full_page_writes=off`, `wal_level=minimal`, `max_wal_size=64GB`, `checkpoint_timeout=30min`, `jit=off`. **Not a durability-realistic config**: it is meant to measure CPU-side code efficiency. |
+| Storage | data directory on a 180 GB tmpfs. Before every run, a fresh copy of a 124 GB golden data directory is restored. |
+| Memory | 206 × 1 GB hugepages (69/69/68 per node) |
+
+`max_connections` is passed on the command line (`-o "-c max_connections=N"`): 4000 by default,
+6500 for the 4800-connection profiling runs. The golden config keeps 1500.
+
+## Method, step by step
+
+### 1. Setup (after every server boot)
+
+```
+echo 206 | sudo tee /sys/kernel/mm/hugepages/hugepages-1048576kB/nr_hugepages
+sudo mount -t tmpfs -o size=180G tmpfs /mnt/pgramdisk && sudo chown ec2-user: /mnt/pgramdisk
+```
+
+The dataset is loaded once with [`scripts/setup/sb-prepare.sh`](scripts/setup/sb-prepare.sh) and kept
+as the golden copy. `fc-srv.sh start` restores it into the tmpfs before every run (~4 min).
+
+### 2. Finding a load level above 60% server CPU
+
+[`scripts/harness/fc-calib.sh`](scripts/harness/fc-calib.sh) sweeps the number of sysbench
+processes (400 threads each; one sysbench process becomes unstable above ~400–512 threads at 250
+tables). Results on base, with postgres on all 192 vCPUs:
+
+| connections | server CPU busy | tps |
+|---:|---:|---:|
+| 1200 (3×400) | 33.6% | 44.6k |
+| 2000 (5×400) | 51.6% | 58.4k |
+| **2800 (7×400)** | **64.1%** | 60.1k |
+| 3600 (9×400) | 65.8% | 59.8k |
+
+2800 connections is the profiling and benchmark load level. Every profile must be recorded at more
+than 60% server CPU, or the pipeline stops.
+
+**Two things that matter when measuring this:**
+
+- **Better binaries do the same work with less CPU**, so they sit lower in busy % at a fixed
+  connection count. The BOLT profile on pgoq at 2800 connections was only 59.2%, so the BOLT profiles
+  were recorded at 3600 (pgoq) and 4800 (the other three) connections.
+- **Throughput swings on a ~120 s cycle.** tps peaks at 65–68k and dips to 51–54k at 120, 240 and
+  360 s. It is not the timed checkpoint (`checkpoint_timeout=30min`); the cause was not found. A 60 s
+  window therefore gives a phase-dependent CPU reading: the first pgoltoq BOLT profile read 57.7%,
+  although the calibration at the same load read 69%. From then on, profiling CPU is averaged over
+  240 s (the 60 s perf record plus 180 s after it), and the benchmark measures 240 s. The PGO training
+  (590 s window) and the three later BOLT profiles use the long window. The AutoFDO profile and the pgoq
+  BOLT profile were measured over 60 s.
+
+### 3. Profile collection
+
+[`scripts/profile/fc-prof.sh`](scripts/profile/fc-prof.sh) runs the whole chain from the client
+(`START_AT=N` resumes at step N). It calls [`scripts/profile/fc-srv.sh`](scripts/profile/fc-srv.sh) on
+the server for start/stop/perf/CPU snapshots. All load comes from the client; nothing runs on the
+server except postgres and perf.
+
+| step | binary | load | method | server CPU | output |
+|---|---|---|---|---:|---|
+| 1 PGO training | `pgogen` (instrumented) | 2800 connections, 900 s | `.gcda` counters are written when postgres stops (the stop allows up to 2 h to finish writing) | 85.0% | 935 `.gcda`, 1.82 MB → [`pgogen-gcda-fc-20260925.tgz`](profiles/full-cpu/) |
+| 2 build | pgo, pgoq, pgolto, pgoltoq | — | reuse the pgogen tree in place, `-fprofile-use` | — | |
+| 3 AutoFDO record | `prep` (`-g -Wl,-q`) | 2800 connections | `perf record -a -e cycles:u -j any,u -c 800011` for 60 s | 61.4% | 20 GB perf data |
+| 4 create_gcov | — | — | `perf inject --build-ids`, then `create_gcov --gcov_version=2` on the client ([`lat-post.sh afdo`](scripts/profile/lat-post.sh)) | — | [`pg18.afdo`](profiles/full-cpu/pg18.afdo) 1,581,949 B, 1,780 functions |
+| 5 build | afdo, afdoq, afdolto, afdoltoq | — | `-fauto-profile=pg18.afdo` | — | |
+| 6–9 BOLT records | pgoq, pgoltoq, afdoq, afdoltoq | 3600 (pgoq), 4800 (others) | `perf record -a -b -e branches:u -c 100003` for 60 s | 63.1%, 65.0%, 67.4%, 71.2% | 2.1–2.4 GB perf data each |
+| 10 BOLT | pgob, pgoltob, afdob, afdoltob | — | `perf2bolt` → `llvm-bolt` on the client ([`lat-post.sh bolt`](scripts/profile/lat-post.sh)), then [`install-bolt.sh`](scripts/build/install-bolt.sh) | — | [`profiles/full-cpu/bolt-*/profile.fdata`](profiles/full-cpu/) |
+
+`--no-buildid` perf records break `create_gcov`, which then produces an almost empty profile.
+`perf inject --build-ids` fixes it. `perf2bolt` matches by path and is not affected.
+
+### 4. Arms
+
+All arms use `-O3 -march=native -mtune=native` and `--with-openssl --with-readline`. The flag matrix is
+in [`scripts/build/pg-build-1n.sh`](scripts/build/pg-build-1n.sh). The `q` variants keep
+relocations (`-Wl,-q`) and debug info so BOLT can rewrite them. They are built only to be profiled
+and bolted, not benchmarked.
+
+| arm | how it is built |
+|---|---|
+| **base** | `-O3 -march=native`. No profile. |
+| prep | base + `-g -Wl,-q`. Used only to record the AutoFDO profile. |
+| pgogen | `-fprofile-generate -fprofile-update=prefer-atomic`. Used only for PGO training. |
+| **pgo** | Rebuilt in the pgogen tree, reusing its `.gcda`: `-fprofile-use -fprofile-correction -fprofile-partial-training -Wno-missing-profile` |
+| **pgolto** | pgo + `-flto -ffat-lto-objects` (gcc-ar / gcc-ranlib / gcc-nm) |
+| **afdo** | `-fauto-profile=pg18.afdo` |
+| **afdolto** | LTO, with `-fauto-profile` on the link line only. **Effectively plain LTO** (see below). |
+| **pgob** | pgoq (pgo + `-g -Wl,-q`) → BOLT profile → `perf2bolt` → `llvm-bolt` |
+| **pgoltob** | pgoltoq (pgolto + `-g -Wl,-q`) → BOLT profile → `perf2bolt` → `llvm-bolt` |
+| **afdob** | afdoq (afdo + `-g -Wl,-q -fno-reorder-blocks-and-partition`) → BOLT profile → `perf2bolt` → `llvm-bolt` |
+| **afdoltob** | afdoltoq (afdolto + `-g -Wl,-q -fno-reorder-blocks-and-partition`) → BOLT profile → `perf2bolt` → `llvm-bolt`. **Effectively LTO + BOLT.** |
+
+llvm-bolt options:
+
+```
+-reorder-blocks=ext-tsp -reorder-functions=cdsort -split-functions -split-all-cold -split-eh -dyno-stats --update-debug-sections
+```
+
+Checks on every build (`gate()` in `pg-build-1n.sh`):
+
+- `.text` size is recorded;
+- the build log must contain `-fprofile-use` / `-fauto-profile`;
+- a binary that should not be instrumented must contain no gcov symbols;
+- the BOLT output must carry the BOLT note section;
+- every full-CPU binary's md5 must differ from its single-node counterpart.
+
+#### AutoFDO + LTO is a no-op in this matrix
+
+gcc 14.2.1 crashes (ICE in einline) when `-flto` and `-fauto-profile` are on the same compile line.
+So afdolto and afdoltoq pass the profile on the link line only. That does nothing: afdoltoq relinked
+with and without `-fauto-profile` gives byte-identical `.text` (8,294,258 B), because GCC's AutoFDO
+pass runs before LTO streaming. **Treat afdolto as plain LTO and afdoltob as LTO + BOLT**, not as
+AutoFDO results.
+
+### 5. Benchmark
+
+[`scripts/harness/fc-mirror.sh`](scripts/harness/fc-mirror.sh), started automatically by
+[`fc-chain-bench.sh`](scripts/harness/fc-chain-bench.sh) once all binaries are installed.
+
+- **Mirrored order:** pass A runs base, pgo, pgolto, afdo, afdolto, pgob, pgoltob, afdob, afdoltob.
+  Pass B runs the same arms in reverse. 18 runs in total.
+- **Each run:** restore the golden data directory → start the arm (unpinned, all 192 vCPUs) → 7 sysbench
+  processes × 400 threads from the client → 600 s warm-up → 240 s measured → stop.
+- **tps:** for each sysbench process, the mean of its 10 s interval tps after warm-up, summed over the
+  7 processes.
+- **CPU:** server and client CPU busy % from `/proc/stat` over the measured window. `pg_stat_activity`
+  wait events are sampled 8 times per run (`*.waits`).
+- **CPU per transaction:** server busy % ÷ tps, averaged over both passes, compared against base.
+
+## Repo layout
+
+```
+config/postgresql.conf        server config baked into the golden data directory
+scripts/setup/                dataset load
+scripts/build/                pg-build-1n.sh (all compiled arms), install-bolt.sh, relink.sh (AutoFDO+LTO no-op check)
+scripts/profile/              full-CPU chain: fc-prof.sh (client) + fc-srv.sh (server) + lat-post.sh (create_gcov / perf2bolt / llvm-bolt)
+                              single-node chain: pg-train.sh, sb-record.sh, rec-chain.sh
+scripts/harness/              full-CPU: fc-calib.sh, fc-mirror.sh, fc-chain-bench.sh
+                              full-box 1200c: fb-mirror.sh + fb-arm.sh;  single-node: sb-mirror.sh, sb-calib-lo.sh
+profiles/full-cpu/            pg18.afdo, bolt-<arm>/profile.fdata, PGO .gcda tarball used for the result above
+profiles/single-node/         the same for the node-0 campaign
+results/<campaign>/           runs.tsv, summary.txt, campaign.log, per-process sysbench logs, wait-event samples
+logs/full-cpu/                profiling chain output, perf record post-checks, build gates
+```
+
+The scripts assume two hosts: a client with an ssh alias `srv` pointing at the server, and a server
+with the PG source at `~/postgres` and scripts in `~/pg-lattice`. Private addresses are replaced by
+`<SERVER_PRIVATE_IP>` / `<CLIENT_PRIVATE_IP>`. Set them before running.

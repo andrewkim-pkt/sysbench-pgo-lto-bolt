@@ -1,0 +1,17 @@
+=== [10:00:58] perf2bolt pgoltoq
+BOLT-INFO: pre-processing profile using perf data aggregator
+PERF2BOLT: read 18508218 samples and 590894702 LBR entries
+PERF2BOLT: 275394 samples (1.5%) were ignored
+PERF2BOLT: traces mismatching disassembled function contents: 0 (0.0%)
+    fdata size: 1987749
+=== [10:06:40] llvm-bolt -> pgoltob
+BOLT-WARNING: split function detected on input : get_progname.cold. The support is limited in relocation mode
+BOLT-WARNING: skipped 26 functions due to cold fragments
+BOLT-INFO: profile for 1 objects was ignored
+BOLT-INFO: basic block reordering modified layout of 627 functions (44.09% of profiled, 2.93% of total)
+BOLT-INFO: splitting separates 436989 hot bytes from 672776 cold bytes (39.38% of split functions is hot).
+BOLT-WARNING: failed to patch entries in transformStmt.cold/1. The function will not be optimized.
+BOLT-WARNING: failed to patch entries in heap_hot_search_buffer. The function will not be optimized.
+BOLT-WARNING: failed to patch entries in SendRowDescriptionMessage. The function will not be optimized.
+a58b2d024d8dda4fe01453c55534edf4  postgres.bolt
+=== [10:06:45] BOLT_OK pgoltob copied to server

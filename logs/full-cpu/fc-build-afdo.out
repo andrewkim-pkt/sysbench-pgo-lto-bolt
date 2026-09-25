@@ -1,0 +1,15 @@
+=== [08:23:35] afdo -> /opt/pg18fc-afdo  (node 0, cpus 0-31,96-127, -j64)
+  gate: version=[postgres (PostgreSQL) 18.3] .text=6947650 debug_line=0 rela.text=0 -O3_in_Makefile=1
+  gate: -fauto-profile in build log = 1371
+  OK afdo
+=== [08:24:10] afdoq -> /opt/pg18fc-afdoq  (node 0, cpus 0-31,96-127, -j64)
+  gate: version=[postgres (PostgreSQL) 18.3] .text=6906562 debug_line=3 rela.text=1 -O3_in_Makefile=1
+  gate: -fauto-profile in build log = 1371
+  OK afdoq
+=== [08:24:48] afdolto -> /opt/pg18fc-afdolto  (node 0, cpus 0-31,96-127, -j64)
+  gate: version=[postgres (PostgreSQL) 18.3] .text=8334898 debug_line=0 rela.text=0 -O3_in_Makefile=1
+  OK afdolto
+=== [08:25:41] afdoltoq -> /opt/pg18fc-afdoltoq  (node 0, cpus 0-31,96-127, -j64)
+  gate: version=[postgres (PostgreSQL) 18.3] .text=8294258 debug_line=3 rela.text=1 -O3_in_Makefile=1
+  OK afdoltoq
+BUILD_RC=0
