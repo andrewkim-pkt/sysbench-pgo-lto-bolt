@@ -46,20 +46,110 @@ one with its setup:
 
 ## Test setup
 
+### Server (runs postgres and perf only)
+
 | | |
 |---|---|
-| Server | AWS r8i.metal-48xl, us-east-2a. Intel Xeon 6975P-C, 1 socket, 192 vCPUs as 3 NUMA nodes (node0 0-31,96-127; node1 32-63,128-159; node2 64-95,160-191), 1.5 TB RAM. Amazon Linux 2023, kernel 6.18.48. |
-| Client | AWS r8i.24xlarge (96 vCPUs), us-east-2c, same VPC. Different availability zone, ~1.2 ms round trip. |
-| PostgreSQL | REL_18_3 (commit `62d6c7d3df6`), built with gcc 14.2.1 (`gcc14-gcc`) |
-| Tools | perf 6.1 (server and client), llvm-bolt / perf2bolt 18.1.3 (client), AutoFDO `create_gcov` built from upstream `c0756f5` (client), sysbench 1.0.20 (client) |
-| Workload | sysbench `oltp_read_write`, 250 tables × 1M rows, `--rand-type=uniform` |
-| Server config | [`config/postgresql.conf`](config/postgresql.conf): `shared_buffers=200GB` on 1 GB hugepages, `synchronous_commit=off`, `full_page_writes=off`, `wal_level=minimal`, `max_wal_size=64GB`, `checkpoint_timeout=30min`, `jit=off`. **Not a durability-realistic config**: it is meant to measure CPU-side code efficiency. |
-| Storage | data directory on a 180 GB tmpfs. Before every run, a fresh copy of a 124 GB golden data directory is restored. |
-| Memory | 206 × 1 GB hugepages (69/69/68 per node) |
+| Instance | AWS **r8i.metal-48xl**, us-east-2a |
+| CPU | Intel Xeon 6975P-C, 1 socket, 96 cores / 192 vCPUs (2 threads per core) |
+| NUMA | SNC-3, 3 nodes: node0 0-31,96-127; node1 32-63,128-159; node2 64-95,160-191 |
+| Memory | 1.5 TB. 206 × 1 GB hugepages reserved at runtime (69/69/68 per node) for `shared_buffers` |
+| OS | Amazon Linux 2023.12, kernel 6.18.48-109.150.amzn2023, stock boot command line |
+| Storage | data directory on a 180 GB tmpfs (`/mnt/pgramdisk`, no mempolicy). Before every run, a fresh copy of a 124 GB golden data directory is restored. No disk I/O in the measured path. |
+| Postgres placement | unpinned, all 192 vCPUs, for profiling and benchmarking |
+| Compiler | gcc 14.2.1 20250110 (`gcc14-gcc`, Red Hat 14.2.1-7) |
+| Source | PostgreSQL REL_18_3, commit `62d6c7d3df6`, `--with-openssl --with-readline` |
+| perf | 6.1.186 |
+| Limits | `ulimit -n` 65535 |
 
-`max_connections` is passed on the command line (`-o "-c max_connections=N"`): 4000 by default,
-6500 for the 4800-connection profiling runs. The golden config keeps 1500.
+### Client (runs sysbench and the profile post-processing)
 
+| | |
+|---|---|
+| Instance | AWS **r8i.24xlarge**, us-east-2c, same VPC. Different availability zone, ~1.2 ms round trip to the server. |
+| CPU | Intel Xeon 6975P-C, 1 socket, 96 vCPUs, 2 NUMA nodes |
+| Memory | 743 GB |
+| OS | Amazon Linux 2023.12, kernel 6.18.48-109.150.amzn2023 |
+| sysbench | 1.0.20 (`ebf1c90`), pgsql driver against the system `libpq.so.5` |
+| Profile tools | llvm-bolt / perf2bolt 18.1.3; AutoFDO `create_gcov` / `dump_gcov` built from upstream `c0756f5` (GCOV build); perf 6.1.186 |
+| Client load | 28–30% client CPU busy at 2800 connections, so the client is not the bottleneck |
+| Limits | `ulimit -n` raised to the hard limit (65535) by the harness |
+
+### PostgreSQL configuration
+
+[`config/postgresql.conf`](config/postgresql.conf) is baked into the golden data directory.
+**It is not a durability-realistic config**: commits are asynchronous, full-page writes are off and
+WAL is minimal, so the benchmark measures CPU-side code efficiency rather than I/O.
+
+```
+listen_addresses = '*'
+port = 5432
+unix_socket_directories = '/tmp'
+max_connections = 1500            # overridden per run: -o "-c max_connections=4000" (6500 for 4800-conn profiling)
+shared_buffers = 200GB
+huge_pages = on
+huge_page_size = 1GB
+work_mem = 8MB
+maintenance_work_mem = 4GB
+temp_buffers = 16MB
+max_files_per_process = 4000
+synchronous_commit = off
+full_page_writes = off
+wal_level = minimal
+max_wal_senders = 0
+wal_buffers = 1GB
+max_wal_size = 64GB
+min_wal_size = 8GB
+checkpoint_timeout = 30min
+checkpoint_completion_target = 0.9
+effective_cache_size = 1000GB
+random_page_cost = 1.0
+seq_page_cost = 1.0
+effective_io_concurrency = 200
+jit = off
+autovacuum = on
+autovacuum_max_workers = 8
+autovacuum_naptime = 10s
+autovacuum_vacuum_cost_delay = 0
+bgwriter_delay = 10ms
+bgwriter_lru_maxpages = 1000
+max_locks_per_transaction = 256
+logging_collector = off
+log_min_messages = warning
+```
+
+Server start (from [`fc-srv.sh`](scripts/profile/fc-srv.sh)):
+
+```
+pg_ctl -D /mnt/pgramdisk/pg18sb250 -l /mnt/pgramdisk/pg-<arm>.log -o "-c max_connections=$MAXC" -w -t 600 start
+```
+
+### sysbench configuration
+
+Dataset, loaded once on the server over loopback ([`sb-prepare.sh`](scripts/setup/sb-prepare.sh), sysbench pinned to node 2); 250 tables × 1M rows, 124 GB:
+
+```
+sysbench --db-driver=pgsql --pgsql-host=127.0.0.1 --pgsql-port=5432 --pgsql-user=sbtest --pgsql-password=sbtest \
+  --pgsql-db=sbtest --tables=250 --table-size=1000000 --threads=50 oltp_read_write prepare
+```
+
+Load, from the client, one command per sysbench process (7 processes for 2800 connections):
+
+```
+sysbench --db-driver=pgsql --pgsql-host=<SERVER_PRIVATE_IP> --pgsql-port=5432 --pgsql-user=sbtest --pgsql-password=sbtest \
+  --pgsql-db=sbtest --tables=250 --table-size=1000000 --threads=400 --time=840 \
+  --report-interval=10 --rand-type=uniform oltp_read_write run
+```
+
+| setting | benchmark | profiling |
+|---|---|---|
+| processes × threads | 7 × 400 = 2800 | 7 × 400 (PGO, AutoFDO); 9 × 400 (pgoq BOLT); 12 × 400 (other BOLT) |
+| `--time` | 840 s (600 s warm-up + 240 s measured) | 900 s (PGO), 360 s (AutoFDO, pgoq BOLT), 420 s (other BOLT) |
+| `--report-interval` | 10 s | 30 s |
+| script | `oltp_read_write`, default mix (10 point selects, 4 range queries, 2 updates, 1 delete, 1 insert per transaction) | same |
+
+One sysbench process is limited to 400 threads because a single process dies above ~512 threads at
+250 tables (LuaJIT, not memory).
 ## Method, step by step
 
 ### 1. Setup (after every server boot)
