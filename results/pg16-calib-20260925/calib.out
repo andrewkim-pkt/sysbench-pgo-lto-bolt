@@ -1,0 +1,9 @@
+started max_connections=2000
+conns=400 (2x200) srv_busy=26.8% cli_busy=7.0% tps=17555 p95=23.4ms failed_procs=0
+conns=600 (3x200) srv_busy=49.0% cli_busy=11.1% tps=26098 p95=23.6ms failed_procs=0
+conns=800 (4x200) srv_busy=69.7% cli_busy=14.9% tps=33473 p95=25.7ms failed_procs=0
+conns=1000 (5x200) srv_busy=85.3% cli_busy=18.4% tps=38352 p95=30.1ms failed_procs=0
+conns=1200 (6x200) srv_busy=94.1% cli_busy=19.5% tps=40756 p95=36.2ms failed_procs=0
+conns=1600 (8x200) srv_busy=97.7% cli_busy=19.1% tps=38659 p95=58.5ms failed_procs=0
+stopped
+CALIB_DONE
