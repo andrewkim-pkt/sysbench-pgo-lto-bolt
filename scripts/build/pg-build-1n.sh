@@ -41,8 +41,11 @@ flags() {   # sets CFLAGS LDFLAGS TREE MAKEVARS LTOTOOLS for $ARM
     pgoltoq)  CFLAGS="$COMMON $P $LTO -g";                    LDFLAGS="$LTO -Wl,-q";   TREE=$WORK/pgogen; LTOTOOLS=1 ;;
     afdo)     CFLAGS="$COMMON -fauto-profile=$AFDO";          LDFLAGS="" ;;
     afdoq)    CFLAGS="$COMMON -fauto-profile=$AFDO -g $NR";   LDFLAGS="-Wl,-q" ;;
-    # profile on the LINK line only: gcc 14.2.1 ICEs (einline/pp_format) with -flto + -fauto-profile
-    # together on a compile line. Consequence: not auditable from the compile commands.
+    # profile on the LINK line only, to avoid a reported gcc 14.2.1 ICE (einline/pp_format) with
+    # -flto + -fauto-profile on one compile line. This is a NO-OP: AutoFDO runs per TU at compile
+    # time, so these arms are plain LTO (relink.sh: byte-identical .text). Retested 2026-09-30:
+    # no ICE on PG 18.3 with gcc 14.2.1 or 15.2.0 with the profile on the compile line. Kept as-is
+    # because it is how the published binaries were built.
     afdolto)  CFLAGS="$COMMON $LTO";                          LDFLAGS="$LTO -fauto-profile=$AFDO"; LTOTOOLS=1 ;;
     afdoltoq) CFLAGS="$COMMON $LTO -g $NR"
               LDFLAGS="$LTO -Wl,-q -fauto-profile=$AFDO $NR"; LTOTOOLS=1 ;;

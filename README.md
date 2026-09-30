@@ -448,11 +448,18 @@ Checks on every build (`gate()` in `pg-build-1n.sh`):
 
 #### AutoFDO + LTO is a no-op in this matrix
 
-gcc 14.2.1 crashes (ICE in einline) when `-flto` and `-fauto-profile` are on the same compile line.
-So afdolto and afdoltoq pass the profile on the link line only. That does nothing: afdoltoq relinked
-with and without `-fauto-profile` gives byte-identical `.text` (8,294,258 B), because GCC's AutoFDO
-pass runs before LTO streaming. **Treat afdolto as plain LTO and afdoltob as LTO + BOLT**, not as
-AutoFDO results.
+afdolto and afdoltoq pass the profile on the link line only. This was done to avoid a reported
+gcc 14.2.1 internal compiler error (`einline` / `pp_format`) with `-flto` and `-fauto-profile` on
+one compile line. The profile does nothing on the link line: afdoltoq relinked with and without
+`-fauto-profile` gives byte-identical `.text` (8,294,258 B), because GCC's AutoFDO pass runs per
+translation unit before LTO streaming, and GCC gives no warning. **Treat afdolto as plain LTO and
+afdoltob as LTO + BOLT**, not as AutoFDO results.
+
+Retested 2026-09-30 on PostgreSQL 18.3 with the profile on the compile line as well: neither
+gcc 14.2.1 nor gcc 15.2.0 hits the error (0 ICEs across the full tree), and the profile then changes
+`.text` by 1.2-2.4% against a plain LTO control, so it is applied. The error was seen on a C++ code
+base, not on PostgreSQL. A corrected build that puts the profile on both lines is in
+[postgres-pgo-lto-bolt `scripts/gcc15/pg-build.sh`](https://github.com/andrewkim-pkt/postgres-pgo-lto-bolt/blob/main/scripts/gcc15/pg-build.sh).
 
 ### 5. Benchmark
 
