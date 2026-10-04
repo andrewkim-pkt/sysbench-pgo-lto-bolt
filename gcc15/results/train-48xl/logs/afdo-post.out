@@ -1,0 +1,5 @@
+afdo profile 1788768 bytes, 1699 functions; top:
+xmin_cmp: total:21507 head:3684 timestamp: 0
+write_relcache_init_file: total:6 head:0 timestamp: 0
+write_item: total:14 head:2 timestamp: 0
+AFDO_OK

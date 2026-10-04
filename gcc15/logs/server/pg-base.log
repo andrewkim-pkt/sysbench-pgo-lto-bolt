@@ -1,0 +1,205 @@
+2026-10-01 22:32:12.531 GMT [196836] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-01 22:32:12.531 GMT [196836] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-01 22:32:12.531 GMT [196836] LOG:  listening on IPv6 address "::", port 5432
+2026-10-01 22:32:12.531 GMT [196836] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-01 22:32:12.533 GMT [196842] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-01 22:32:12.534 GMT [196836] LOG:  database system is ready to accept connections
+2026-10-01 22:32:33.752 GMT [197588] ERROR:  duplicate key value violates unique constraint "sbtest19_pkey"
+2026-10-01 22:32:33.752 GMT [197588] DETAIL:  Key (id)=(599339) already exists.
+2026-10-01 22:32:33.752 GMT [197588] STATEMENT:  INSERT INTO sbtest19 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:32:34.437 GMT [197745] ERROR:  duplicate key value violates unique constraint "sbtest28_pkey"
+2026-10-01 22:32:34.437 GMT [197745] DETAIL:  Key (id)=(469603) already exists.
+2026-10-01 22:32:34.437 GMT [197745] STATEMENT:  INSERT INTO sbtest28 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:32:34.443 GMT [197705] ERROR:  duplicate key value violates unique constraint "sbtest28_pkey"
+2026-10-01 22:32:34.443 GMT [197705] DETAIL:  Key (id)=(469603) already exists.
+2026-10-01 22:32:34.443 GMT [197705] STATEMENT:  INSERT INTO sbtest28 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:32:39.801 GMT [197633] ERROR:  duplicate key value violates unique constraint "sbtest216_pkey"
+2026-10-01 22:32:39.801 GMT [197633] DETAIL:  Key (id)=(369872) already exists.
+2026-10-01 22:32:39.801 GMT [197633] STATEMENT:  INSERT INTO sbtest216 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:32:39.941 GMT [197669] ERROR:  duplicate key value violates unique constraint "sbtest216_pkey"
+2026-10-01 22:32:39.941 GMT [197669] DETAIL:  Key (id)=(369872) already exists.
+2026-10-01 22:32:39.941 GMT [197669] STATEMENT:  INSERT INTO sbtest216 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:32:51.682 GMT [197880] ERROR:  duplicate key value violates unique constraint "sbtest109_pkey"
+2026-10-01 22:32:51.682 GMT [197880] DETAIL:  Key (id)=(720526) already exists.
+2026-10-01 22:32:51.682 GMT [197880] STATEMENT:  INSERT INTO sbtest109 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:32:54.746 GMT [197923] ERROR:  duplicate key value violates unique constraint "sbtest179_pkey"
+2026-10-01 22:32:54.746 GMT [197923] DETAIL:  Key (id)=(928305) already exists.
+2026-10-01 22:32:54.746 GMT [197923] STATEMENT:  INSERT INTO sbtest179 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:33:11.073 GMT [197038] ERROR:  duplicate key value violates unique constraint "sbtest211_pkey"
+2026-10-01 22:33:11.073 GMT [197038] DETAIL:  Key (id)=(920169) already exists.
+2026-10-01 22:33:11.073 GMT [197038] STATEMENT:  INSERT INTO sbtest211 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:33:23.180 GMT [197647] ERROR:  duplicate key value violates unique constraint "sbtest33_pkey"
+2026-10-01 22:33:23.180 GMT [197647] DETAIL:  Key (id)=(761143) already exists.
+2026-10-01 22:33:23.180 GMT [197647] STATEMENT:  INSERT INTO sbtest33 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:34:00.251 GMT [197722] ERROR:  duplicate key value violates unique constraint "sbtest217_pkey"
+2026-10-01 22:34:00.251 GMT [197722] DETAIL:  Key (id)=(504398) already exists.
+2026-10-01 22:34:00.251 GMT [197722] STATEMENT:  INSERT INTO sbtest217 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:34:12.382 GMT [196916] ERROR:  duplicate key value violates unique constraint "sbtest204_pkey"
+2026-10-01 22:34:12.382 GMT [196916] DETAIL:  Key (id)=(78013) already exists.
+2026-10-01 22:34:12.382 GMT [196916] STATEMENT:  INSERT INTO sbtest204 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:34:12.811 GMT [197786] ERROR:  duplicate key value violates unique constraint "sbtest179_pkey"
+2026-10-01 22:34:12.811 GMT [197786] DETAIL:  Key (id)=(274978) already exists.
+2026-10-01 22:34:12.811 GMT [197786] STATEMENT:  INSERT INTO sbtest179 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:34:19.722 GMT [197751] ERROR:  duplicate key value violates unique constraint "sbtest213_pkey"
+2026-10-01 22:34:19.722 GMT [197751] DETAIL:  Key (id)=(646264) already exists.
+2026-10-01 22:34:19.722 GMT [197751] STATEMENT:  INSERT INTO sbtest213 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:34:20.083 GMT [197676] ERROR:  duplicate key value violates unique constraint "sbtest19_pkey"
+2026-10-01 22:34:20.083 GMT [197676] DETAIL:  Key (id)=(784213) already exists.
+2026-10-01 22:34:20.083 GMT [197676] STATEMENT:  INSERT INTO sbtest19 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:34:39.917 GMT [196928] ERROR:  duplicate key value violates unique constraint "sbtest81_pkey"
+2026-10-01 22:34:39.917 GMT [196928] DETAIL:  Key (id)=(377683) already exists.
+2026-10-01 22:34:39.917 GMT [196928] STATEMENT:  INSERT INTO sbtest81 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:35:18.835 GMT [197268] ERROR:  duplicate key value violates unique constraint "sbtest134_pkey"
+2026-10-01 22:35:18.835 GMT [197268] DETAIL:  Key (id)=(895612) already exists.
+2026-10-01 22:35:18.835 GMT [197268] STATEMENT:  INSERT INTO sbtest134 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:35:25.733 GMT [198006] ERROR:  duplicate key value violates unique constraint "sbtest113_pkey"
+2026-10-01 22:35:25.733 GMT [198006] DETAIL:  Key (id)=(758142) already exists.
+2026-10-01 22:35:25.733 GMT [198006] STATEMENT:  INSERT INTO sbtest113 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:35:49.391 GMT [197273] ERROR:  duplicate key value violates unique constraint "sbtest26_pkey"
+2026-10-01 22:35:49.391 GMT [197273] DETAIL:  Key (id)=(857599) already exists.
+2026-10-01 22:35:49.391 GMT [197273] STATEMENT:  INSERT INTO sbtest26 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:35:51.754 GMT [197454] ERROR:  duplicate key value violates unique constraint "sbtest214_pkey"
+2026-10-01 22:35:51.754 GMT [197454] DETAIL:  Key (id)=(291944) already exists.
+2026-10-01 22:35:51.754 GMT [197454] STATEMENT:  INSERT INTO sbtest214 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:36:25.169 GMT [198006] ERROR:  duplicate key value violates unique constraint "sbtest105_pkey"
+2026-10-01 22:36:25.169 GMT [198006] DETAIL:  Key (id)=(69857) already exists.
+2026-10-01 22:36:25.169 GMT [198006] STATEMENT:  INSERT INTO sbtest105 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:36:44.749 GMT [197730] ERROR:  duplicate key value violates unique constraint "sbtest41_pkey"
+2026-10-01 22:36:44.749 GMT [197730] DETAIL:  Key (id)=(872573) already exists.
+2026-10-01 22:36:44.749 GMT [197730] STATEMENT:  INSERT INTO sbtest41 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:36:44.896 GMT [197263] ERROR:  duplicate key value violates unique constraint "sbtest109_pkey"
+2026-10-01 22:36:44.896 GMT [197263] DETAIL:  Key (id)=(978844) already exists.
+2026-10-01 22:36:44.896 GMT [197263] STATEMENT:  INSERT INTO sbtest109 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:36:53.235 GMT [197840] ERROR:  duplicate key value violates unique constraint "sbtest46_pkey"
+2026-10-01 22:36:53.235 GMT [197840] DETAIL:  Key (id)=(145315) already exists.
+2026-10-01 22:36:53.235 GMT [197840] STATEMENT:  INSERT INTO sbtest46 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:36:55.058 GMT [198002] ERROR:  duplicate key value violates unique constraint "sbtest212_pkey"
+2026-10-01 22:36:55.058 GMT [198002] DETAIL:  Key (id)=(803505) already exists.
+2026-10-01 22:36:55.058 GMT [198002] STATEMENT:  INSERT INTO sbtest212 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:36:57.211 GMT [197928] ERROR:  duplicate key value violates unique constraint "sbtest141_pkey"
+2026-10-01 22:36:57.211 GMT [197928] DETAIL:  Key (id)=(64344) already exists.
+2026-10-01 22:36:57.211 GMT [197928] STATEMENT:  INSERT INTO sbtest141 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:37:19.384 GMT [197230] ERROR:  duplicate key value violates unique constraint "sbtest196_pkey"
+2026-10-01 22:37:19.384 GMT [197230] DETAIL:  Key (id)=(493839) already exists.
+2026-10-01 22:37:19.384 GMT [197230] STATEMENT:  INSERT INTO sbtest196 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:37:31.518 GMT [197155] ERROR:  duplicate key value violates unique constraint "sbtest76_pkey"
+2026-10-01 22:37:31.518 GMT [197155] DETAIL:  Key (id)=(357644) already exists.
+2026-10-01 22:37:31.518 GMT [197155] STATEMENT:  INSERT INTO sbtest76 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:37:43.526 GMT [197082] ERROR:  duplicate key value violates unique constraint "sbtest8_pkey"
+2026-10-01 22:37:43.526 GMT [197082] DETAIL:  Key (id)=(773815) already exists.
+2026-10-01 22:37:43.526 GMT [197082] STATEMENT:  INSERT INTO sbtest8 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:37:45.028 GMT [197246] ERROR:  duplicate key value violates unique constraint "sbtest191_pkey"
+2026-10-01 22:37:45.028 GMT [197246] DETAIL:  Key (id)=(238259) already exists.
+2026-10-01 22:37:45.028 GMT [197246] STATEMENT:  INSERT INTO sbtest191 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:37:57.357 GMT [197575] ERROR:  duplicate key value violates unique constraint "sbtest32_pkey"
+2026-10-01 22:37:57.357 GMT [197575] DETAIL:  Key (id)=(744211) already exists.
+2026-10-01 22:37:57.357 GMT [197575] STATEMENT:  INSERT INTO sbtest32 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:38:19.020 GMT [196974] ERROR:  duplicate key value violates unique constraint "sbtest49_pkey"
+2026-10-01 22:38:19.020 GMT [196974] DETAIL:  Key (id)=(662524) already exists.
+2026-10-01 22:38:19.020 GMT [196974] STATEMENT:  INSERT INTO sbtest49 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:38:27.552 GMT [197188] ERROR:  duplicate key value violates unique constraint "sbtest131_pkey"
+2026-10-01 22:38:27.552 GMT [197188] DETAIL:  Key (id)=(623353) already exists.
+2026-10-01 22:38:27.552 GMT [197188] STATEMENT:  INSERT INTO sbtest131 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:38:45.331 GMT [197737] ERROR:  duplicate key value violates unique constraint "sbtest214_pkey"
+2026-10-01 22:38:45.331 GMT [197737] DETAIL:  Key (id)=(412534) already exists.
+2026-10-01 22:38:45.331 GMT [197737] STATEMENT:  INSERT INTO sbtest214 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 22:39:15.682 GMT [196836] LOG:  received fast shutdown request
+2026-10-01 22:39:15.682 GMT [196836] LOG:  aborting any active transactions
+2026-10-01 22:39:15.688 GMT [196836] LOG:  background worker "logical replication launcher" (PID 196845) exited with exit code 1
+2026-10-01 22:39:15.745 GMT [198553] FATAL:  terminating autovacuum process due to administrator command
+2026-10-01 22:39:16.503 GMT [196840] LOG:  shutting down
+2026-10-01 22:39:16.503 GMT [196840] LOG:  checkpoint starting: shutdown immediate
+2026-10-01 22:39:44.089 GMT [196840] LOG:  checkpoint complete: wrote 9899938 buffers (37.8%), wrote 1911 SLRU buffers; 0 WAL file(s) added, 0 removed, 1987 recycled; write=27.557 s, sync=0.001 s, total=27.587 s; sync files=1289, longest=0.001 s, average=0.000 s; distance=32542312 kB, estimate=32542312 kB; lsn=1A/65349D40, redo lsn=1A/65349D40
+2026-10-01 22:39:44.092 GMT [196836] LOG:  database system is shut down
+2026-10-02 00:00:39.688 GMT [279679] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-02 00:00:39.689 GMT [279679] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-02 00:00:39.689 GMT [279679] LOG:  listening on IPv6 address "::", port 5432
+2026-10-02 00:00:39.689 GMT [279679] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-02 00:00:39.691 GMT [279685] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-02 00:00:39.692 GMT [279679] LOG:  database system is ready to accept connections
+2026-10-02 00:14:03.392 GMT [279679] LOG:  received fast shutdown request
+2026-10-02 00:14:03.392 GMT [279679] LOG:  aborting any active transactions
+2026-10-02 00:14:03.393 GMT [279679] LOG:  background worker "logical replication launcher" (PID 279688) exited with exit code 1
+2026-10-02 00:14:03.406 GMT [279683] LOG:  shutting down
+2026-10-02 00:14:03.406 GMT [279683] LOG:  checkpoint starting: shutdown immediate
+2026-10-02 00:14:24.591 GMT [279683] LOG:  checkpoint complete: wrote 8144393 buffers (31.1%), wrote 1252 SLRU buffers; 0 WAL file(s) added, 524 removed, 0 recycled; write=20.856 s, sync=0.001 s, total=21.186 s; sync files=1269, longest=0.001 s, average=0.000 s; distance=8584792 kB, estimate=8584792 kB; lsn=14/AEF45F30, redo lsn=14/AEF45F30
+2026-10-02 00:14:24.594 GMT [279679] LOG:  database system is shut down
+2026-10-02 03:09:32.078 GMT [294400] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-02 03:09:32.078 GMT [294400] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-02 03:09:32.078 GMT [294400] LOG:  listening on IPv6 address "::", port 5432
+2026-10-02 03:09:32.078 GMT [294400] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-02 03:09:32.080 GMT [294406] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-02 03:09:32.081 GMT [294400] LOG:  database system is ready to accept connections
+2026-10-02 03:19:36.924 GMT [294971] ERROR:  duplicate key value violates unique constraint "sbtest96_pkey"
+2026-10-02 03:19:36.924 GMT [294971] DETAIL:  Key (id)=(917982) already exists.
+2026-10-02 03:19:36.924 GMT [294971] STATEMENT:  INSERT INTO sbtest96 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-02 03:22:55.610 GMT [294400] LOG:  received fast shutdown request
+2026-10-02 03:22:55.611 GMT [294400] LOG:  aborting any active transactions
+2026-10-02 03:22:55.611 GMT [294400] LOG:  background worker "logical replication launcher" (PID 294409) exited with exit code 1
+2026-10-02 03:22:55.625 GMT [294404] LOG:  shutting down
+2026-10-02 03:22:55.625 GMT [294404] LOG:  checkpoint starting: shutdown immediate
+2026-10-02 03:23:17.464 GMT [294404] LOG:  checkpoint complete: wrote 8151068 buffers (31.1%), wrote 1253 SLRU buffers; 0 WAL file(s) added, 527 removed, 0 recycled; write=21.510 s, sync=0.001 s, total=21.840 s; sync files=1269, longest=0.001 s, average=0.000 s; distance=8625658 kB, estimate=8625658 kB; lsn=14/B172E588, redo lsn=14/B172E588
+2026-10-02 03:23:17.467 GMT [294400] LOG:  database system is shut down
+2026-10-02 06:33:36.064 GMT [29913] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-02 06:33:36.066 GMT [29913] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-02 06:33:36.066 GMT [29913] LOG:  listening on IPv6 address "::", port 5432
+2026-10-02 06:33:36.066 GMT [29913] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-02 06:33:36.069 GMT [29919] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-02 06:33:36.071 GMT [29913] LOG:  database system is ready to accept connections
+2026-10-02 06:35:36.660 GMT [29999] ERROR:  duplicate key value violates unique constraint "sbtest203_pkey"
+2026-10-02 06:35:36.660 GMT [29999] DETAIL:  Key (id)=(11370) already exists.
+2026-10-02 06:35:36.660 GMT [29999] STATEMENT:  INSERT INTO sbtest203 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-02 06:44:04.940 GMT [30588] ERROR:  duplicate key value violates unique constraint "sbtest179_pkey"
+2026-10-02 06:44:04.940 GMT [30588] DETAIL:  Key (id)=(632032) already exists.
+2026-10-02 06:44:04.940 GMT [30588] STATEMENT:  INSERT INTO sbtest179 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-02 06:44:19.422 GMT [30667] ERROR:  duplicate key value violates unique constraint "sbtest109_pkey"
+2026-10-02 06:44:19.422 GMT [30667] DETAIL:  Key (id)=(725352) already exists.
+2026-10-02 06:44:19.422 GMT [30667] STATEMENT:  INSERT INTO sbtest109 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-02 06:45:57.192 GMT [30512] ERROR:  duplicate key value violates unique constraint "sbtest94_pkey"
+2026-10-02 06:45:57.192 GMT [30512] DETAIL:  Key (id)=(595242) already exists.
+2026-10-02 06:45:57.192 GMT [30512] STATEMENT:  INSERT INTO sbtest94 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-02 06:48:18.140 GMT [31357] ERROR:  duplicate key value violates unique constraint "sbtest145_pkey"
+2026-10-02 06:48:18.140 GMT [31357] DETAIL:  Key (id)=(162189) already exists.
+2026-10-02 06:48:18.140 GMT [31357] STATEMENT:  INSERT INTO sbtest145 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-02 06:49:06.450 GMT [31234] ERROR:  duplicate key value violates unique constraint "sbtest193_pkey"
+2026-10-02 06:49:06.450 GMT [31234] DETAIL:  Key (id)=(6092) already exists.
+2026-10-02 06:49:06.450 GMT [31234] STATEMENT:  INSERT INTO sbtest193 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-02 06:53:20.252 GMT [29917] LOG:  checkpoint starting: wal
+2026-10-02 06:54:24.739 GMT [31238] ERROR:  duplicate key value violates unique constraint "sbtest149_pkey"
+2026-10-02 06:54:24.739 GMT [31238] DETAIL:  Key (id)=(954762) already exists.
+2026-10-02 06:54:24.739 GMT [31238] STATEMENT:  INSERT INTO sbtest149 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-02 06:54:41.735 GMT [29913] LOG:  received fast shutdown request
+2026-10-02 06:54:41.735 GMT [29913] LOG:  aborting any active transactions
+2026-10-02 06:54:41.736 GMT [29913] LOG:  background worker "logical replication launcher" (PID 29922) exited with exit code 1
+2026-10-02 06:54:41.757 GMT [31847] FATAL:  terminating autovacuum process due to administrator command
+2026-10-02 06:55:01.529 GMT [29917] LOG:  checkpoint complete: wrote 9598415 buffers (36.6%), wrote 1946 SLRU buffers; 0 WAL file(s) added, 0 removed, 2155 recycled; write=101.245 s, sync=0.001 s, total=101.277 s; sync files=1290, longest=0.001 s, average=0.000 s; distance=35294439 kB, estimate=35294439 kB; lsn=1B/F07EF608, redo lsn=1B/D2E9BA0
+2026-10-02 06:55:01.529 GMT [29917] LOG:  shutting down
+2026-10-02 06:55:01.529 GMT [29917] LOG:  checkpoint starting: shutdown immediate
+2026-10-02 06:55:03.351 GMT [29917] LOG:  checkpoint complete: wrote 640428 buffers (2.4%), wrote 114 SLRU buffers; 0 WAL file(s) added, 0 removed, 227 recycled; write=1.817 s, sync=0.001 s, total=1.822 s; sync files=152, longest=0.001 s, average=0.000 s; distance=3724310 kB, estimate=32137427 kB; lsn=1B/F07EF680, redo lsn=1B/F07EF680
+2026-10-02 06:55:03.354 GMT [29913] LOG:  database system is shut down
+2026-10-02 08:09:46.371 GMT [109308] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-02 08:09:46.373 GMT [109308] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-02 08:09:46.373 GMT [109308] LOG:  listening on IPv6 address "::", port 5432
+2026-10-02 08:09:46.373 GMT [109308] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-02 08:09:46.375 GMT [109314] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-02 08:09:46.380 GMT [109308] LOG:  database system is ready to accept connections
+2026-10-02 08:23:09.876 GMT [109308] LOG:  received fast shutdown request
+2026-10-02 08:23:09.876 GMT [109308] LOG:  aborting any active transactions
+2026-10-02 08:23:09.877 GMT [109308] LOG:  background worker "logical replication launcher" (PID 109317) exited with exit code 1
+2026-10-02 08:23:09.892 GMT [109312] LOG:  shutting down
+2026-10-02 08:23:09.892 GMT [109312] LOG:  checkpoint starting: shutdown immediate
+2026-10-02 08:23:31.628 GMT [109312] LOG:  checkpoint complete: wrote 8332837 buffers (31.8%), wrote 1304 SLRU buffers; 0 WAL file(s) added, 633 removed, 0 recycled; write=21.339 s, sync=0.001 s, total=21.736 s; sync files=1270, longest=0.001 s, average=0.000 s; distance=10364613 kB, estimate=10364613 kB; lsn=15/1B961038, redo lsn=15/1B961038
+2026-10-02 08:23:31.631 GMT [109308] LOG:  database system is shut down
+2026-10-02 11:18:27.540 GMT [124046] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-02 11:18:27.540 GMT [124046] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-02 11:18:27.540 GMT [124046] LOG:  listening on IPv6 address "::", port 5432
+2026-10-02 11:18:27.541 GMT [124046] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-02 11:18:27.543 GMT [124052] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-02 11:18:27.544 GMT [124046] LOG:  database system is ready to accept connections
+2026-10-02 11:31:50.866 GMT [124046] LOG:  received fast shutdown request
+2026-10-02 11:31:50.866 GMT [124046] LOG:  aborting any active transactions
+2026-10-02 11:31:50.867 GMT [124046] LOG:  background worker "logical replication launcher" (PID 124055) exited with exit code 1
+2026-10-02 11:31:50.883 GMT [124050] LOG:  shutting down
+2026-10-02 11:31:50.883 GMT [124050] LOG:  checkpoint starting: shutdown immediate
+2026-10-02 11:32:13.932 GMT [124050] LOG:  checkpoint complete: wrote 8346661 buffers (31.8%), wrote 1309 SLRU buffers; 0 WAL file(s) added, 644 removed, 0 recycled; write=22.645 s, sync=0.001 s, total=23.049 s; sync files=1270, longest=0.001 s, average=0.000 s; distance=10541968 kB, estimate=10541968 kB; lsn=15/26693D18, redo lsn=15/26693D18
+2026-10-02 11:32:13.935 GMT [124046] LOG:  database system is shut down

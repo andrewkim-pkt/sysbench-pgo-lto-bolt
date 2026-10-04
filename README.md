@@ -9,7 +9,15 @@ separate client machine at more than 60% server CPU.
 The build, profiling and benchmark scripts are in [`scripts/`](scripts/). The profiles are in
 [`profiles/`](profiles/). The raw per-run logs are in [`results/`](results/).
 
-**Newest result (2026-09-29):** the HammerDB-TPROC-C-trained PGO + LTO + BOLT binary published in
+**gcc 15.2.0 round (2026-10-01 to 10-03):** the matrix was rebuilt with gcc 15.2.0 and trained on
+sysbench. The selected `pgoltob` binary is **+4.33% / +6.46% / +9.26% mean tps** vs base on a
+32-1024 thread ladder on the 48xl / 24xl / 16xl, and beats the HammerDB-trained gcc 15.2.0 binary
+on every box. Build steps, perf and BOLT options, training, benchmark operation and all results are
+in [`gcc15/README.md`](gcc15/README.md). The binary is
+[`binaries/g15sb-pg18-pgoltob.tar.xz`](binaries/README.md#g15sb-pg18-pgoltobtarxz-gcc-1520-sysbench-trained-pgoltob).
+The sections below are the earlier gcc 14.2.1 rounds.
+
+**Earlier result (2026-09-29):** the HammerDB-TPROC-C-trained PGO + LTO + BOLT binary published in
 [postgres-pgo-lto-bolt](https://github.com/andrewkim-pkt/postgres-pgo-lto-bolt), measured on sysbench across
 five r8i sizes. It is **+7 to +12% tps** where the server is CPU-bound. It comes first below. The earlier
 sysbench-trained build matrix follows it, under [Sysbench-trained build matrix](#sysbench-trained-build-matrix-2026-09-24-to-09-25).

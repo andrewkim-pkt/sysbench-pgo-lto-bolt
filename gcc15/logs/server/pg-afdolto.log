@@ -1,0 +1,29 @@
+2026-10-02 00:29:37.327 GMT [282006] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-02 00:29:37.328 GMT [282006] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-02 00:29:37.328 GMT [282006] LOG:  listening on IPv6 address "::", port 5432
+2026-10-02 00:29:37.328 GMT [282006] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-02 00:29:37.330 GMT [282012] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-02 00:29:37.331 GMT [282006] LOG:  database system is ready to accept connections
+2026-10-02 00:40:15.586 GMT [282555] ERROR:  duplicate key value violates unique constraint "sbtest194_pkey"
+2026-10-02 00:40:15.586 GMT [282555] DETAIL:  Key (id)=(999069) already exists.
+2026-10-02 00:40:15.586 GMT [282555] STATEMENT:  INSERT INTO sbtest194 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-02 00:43:00.821 GMT [282006] LOG:  received fast shutdown request
+2026-10-02 00:43:00.821 GMT [282006] LOG:  aborting any active transactions
+2026-10-02 00:43:00.821 GMT [282006] LOG:  background worker "logical replication launcher" (PID 282015) exited with exit code 1
+2026-10-02 00:43:00.835 GMT [282010] LOG:  shutting down
+2026-10-02 00:43:00.835 GMT [282010] LOG:  checkpoint starting: shutdown immediate
+2026-10-02 00:43:30.946 GMT [282010] LOG:  checkpoint complete: wrote 8158911 buffers (31.1%), wrote 1255 SLRU buffers; 0 WAL file(s) added, 531 removed, 0 recycled; write=29.778 s, sync=0.001 s, total=30.112 s; sync files=1269, longest=0.001 s, average=0.000 s; distance=8699503 kB, estimate=8699503 kB; lsn=14/B5F4BB70, redo lsn=14/B5F4BB70
+2026-10-02 00:43:30.949 GMT [282006] LOG:  database system is shut down
+2026-10-02 02:40:25.831 GMT [292178] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-02 02:40:25.831 GMT [292178] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-02 02:40:25.831 GMT [292178] LOG:  listening on IPv6 address "::", port 5432
+2026-10-02 02:40:25.831 GMT [292178] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-02 02:40:25.833 GMT [292184] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-02 02:40:25.834 GMT [292178] LOG:  database system is ready to accept connections
+2026-10-02 02:53:49.460 GMT [292178] LOG:  received fast shutdown request
+2026-10-02 02:53:49.460 GMT [292178] LOG:  aborting any active transactions
+2026-10-02 02:53:49.461 GMT [292178] LOG:  background worker "logical replication launcher" (PID 292187) exited with exit code 1
+2026-10-02 02:53:49.474 GMT [292182] LOG:  shutting down
+2026-10-02 02:53:49.474 GMT [292182] LOG:  checkpoint starting: shutdown immediate
+2026-10-02 02:54:19.530 GMT [292182] LOG:  checkpoint complete: wrote 8155651 buffers (31.1%), wrote 1255 SLRU buffers; 0 WAL file(s) added, 530 removed, 0 recycled; write=29.722 s, sync=0.001 s, total=30.056 s; sync files=1269, longest=0.001 s, average=0.000 s; distance=8671016 kB, estimate=8671016 kB; lsn=14/B4379E00, redo lsn=14/B4379E00
+2026-10-02 02:54:19.533 GMT [292178] LOG:  database system is shut down

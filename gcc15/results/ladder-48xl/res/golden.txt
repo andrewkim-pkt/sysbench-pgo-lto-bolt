@@ -1,0 +1,2 @@
+sbtest size: 147 GB
+golden: 212G

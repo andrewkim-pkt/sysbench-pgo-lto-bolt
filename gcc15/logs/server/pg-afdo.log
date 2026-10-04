@@ -1,0 +1,29 @@
+2026-10-02 00:15:08.289 GMT [280839] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-02 00:15:08.290 GMT [280839] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-02 00:15:08.290 GMT [280839] LOG:  listening on IPv6 address "::", port 5432
+2026-10-02 00:15:08.290 GMT [280839] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-02 00:15:08.292 GMT [280845] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-02 00:15:08.293 GMT [280839] LOG:  database system is ready to accept connections
+2026-10-02 00:28:31.661 GMT [280839] LOG:  received fast shutdown request
+2026-10-02 00:28:31.661 GMT [280839] LOG:  aborting any active transactions
+2026-10-02 00:28:31.662 GMT [280839] LOG:  background worker "logical replication launcher" (PID 280848) exited with exit code 1
+2026-10-02 00:28:31.675 GMT [280843] LOG:  shutting down
+2026-10-02 00:28:31.675 GMT [280843] LOG:  checkpoint starting: shutdown immediate
+2026-10-02 00:28:53.283 GMT [280843] LOG:  checkpoint complete: wrote 8168989 buffers (31.2%), wrote 1257 SLRU buffers; 0 WAL file(s) added, 536 removed, 0 recycled; write=21.274 s, sync=0.001 s, total=21.608 s; sync files=1269, longest=0.001 s, average=0.000 s; distance=8772744 kB, estimate=8772744 kB; lsn=14/BA6D1F98, redo lsn=14/BA6D1F98
+2026-10-02 00:28:53.286 GMT [280839] LOG:  database system is shut down
+2026-10-02 02:55:03.194 GMT [293258] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-02 02:55:03.195 GMT [293258] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-02 02:55:03.195 GMT [293258] LOG:  listening on IPv6 address "::", port 5432
+2026-10-02 02:55:03.195 GMT [293258] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-02 02:55:03.197 GMT [293264] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-02 02:55:03.198 GMT [293258] LOG:  database system is ready to accept connections
+2026-10-02 03:06:50.660 GMT [293790] ERROR:  duplicate key value violates unique constraint "sbtest158_pkey"
+2026-10-02 03:06:50.660 GMT [293790] DETAIL:  Key (id)=(759366) already exists.
+2026-10-02 03:06:50.660 GMT [293790] STATEMENT:  INSERT INTO sbtest158 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-02 03:08:26.881 GMT [293258] LOG:  received fast shutdown request
+2026-10-02 03:08:26.881 GMT [293258] LOG:  aborting any active transactions
+2026-10-02 03:08:26.882 GMT [293258] LOG:  background worker "logical replication launcher" (PID 293267) exited with exit code 1
+2026-10-02 03:08:26.895 GMT [293262] LOG:  shutting down
+2026-10-02 03:08:26.895 GMT [293262] LOG:  checkpoint starting: shutdown immediate
+2026-10-02 03:08:48.389 GMT [293262] LOG:  checkpoint complete: wrote 8171623 buffers (31.2%), wrote 1258 SLRU buffers; 0 WAL file(s) added, 537 removed, 0 recycled; write=21.155 s, sync=0.001 s, total=21.494 s; sync files=1269, longest=0.001 s, average=0.000 s; distance=8786011 kB, estimate=8786011 kB; lsn=14/BB3C6B80, redo lsn=14/BB3C6B80
+2026-10-02 03:08:48.392 GMT [293258] LOG:  database system is shut down

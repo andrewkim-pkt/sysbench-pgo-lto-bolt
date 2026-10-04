@@ -1,0 +1,74 @@
+2026-10-01 22:28:16.489 GMT [195602] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-01 22:28:16.490 GMT [195602] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-01 22:28:16.490 GMT [195602] LOG:  listening on IPv6 address "::", port 5432
+2026-10-01 22:28:16.490 GMT [195602] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-01 22:28:16.491 GMT [195608] LOG:  database system was shut down at 2026-10-01 22:28:15 GMT
+2026-10-01 22:28:16.492 GMT [195602] LOG:  database system is ready to accept connections
+2026-10-01 22:28:46.719 GMT [195726] LOG:  skipping analyze of "sbtest24" --- lock not available
+2026-10-01 22:28:47.044 GMT [195726] LOG:  skipping vacuum of "sbtest33" --- lock not available
+2026-10-01 22:28:47.054 GMT [195718] LOG:  skipping analyze of "sbtest50" --- lock not available
+2026-10-01 22:28:47.054 GMT [195718] LOG:  skipping vacuum of "sbtest12" --- lock not available
+2026-10-01 22:28:47.352 GMT [195718] LOG:  skipping vacuum of "sbtest31" --- lock not available
+2026-10-01 22:28:47.442 GMT [195726] LOG:  skipping vacuum of "sbtest40" --- lock not available
+2026-10-01 22:29:17.295 GMT [195810] LOG:  skipping analyze of "sbtest64" --- lock not available
+2026-10-01 22:29:17.295 GMT [195810] LOG:  skipping vacuum of "sbtest100" --- lock not available
+2026-10-01 22:29:17.295 GMT [195810] LOG:  skipping vacuum of "sbtest77" --- lock not available
+2026-10-01 22:29:17.328 GMT [195815] LOG:  skipping analyze of "sbtest52" --- lock not available
+2026-10-01 22:29:17.328 GMT [195815] LOG:  skipping vacuum of "sbtest100" --- lock not available
+2026-10-01 22:29:17.328 GMT [195815] LOG:  skipping vacuum of "sbtest77" --- lock not available
+2026-10-01 22:29:17.557 GMT [195810] LOG:  skipping analyze of "sbtest67" --- lock not available
+2026-10-01 22:29:25.134 GMT [195606] LOG:  checkpoint starting: wal
+2026-10-01 22:29:47.717 GMT [196000] LOG:  skipping vacuum of "sbtest128" --- lock not available
+2026-10-01 22:29:48.638 GMT [196000] LOG:  skipping analyze of "sbtest107" --- lock not available
+2026-10-01 22:29:48.699 GMT [195939] LOG:  skipping analyze of "sbtest107" --- lock not available
+2026-10-01 22:30:19.246 GMT [196153] LOG:  skipping analyze of "sbtest157" --- lock not available
+2026-10-01 22:30:26.976 GMT [195606] LOG:  checkpoint complete: wrote 3375490 buffers (12.9%), wrote 25 SLRU buffers; 0 WAL file(s) added, 6 removed, 2152 recycled; write=61.809 s, sync=0.003 s, total=61.844 s; sync files=1734, longest=0.001 s, average=0.000 s; distance=35354561 kB, estimate=35354561 kB; lsn=10/61F3CC0, redo lsn=8/6F5A13F0
+2026-10-01 22:30:33.750 GMT [195606] LOG:  checkpoint starting: wal
+2026-10-01 22:30:48.698 GMT [196400] LOG:  skipping vacuum of "sbtest209" --- lock not available
+2026-10-01 22:30:48.698 GMT [196400] LOG:  skipping vacuum of "sbtest241" --- lock not available
+2026-10-01 22:30:48.698 GMT [196400] LOG:  skipping vacuum of "sbtest246" --- lock not available
+2026-10-01 22:30:48.698 GMT [196400] LOG:  skipping vacuum of "sbtest223" --- lock not available
+2026-10-01 22:30:48.698 GMT [196400] LOG:  skipping vacuum of "sbtest215" --- lock not available
+2026-10-01 22:30:48.714 GMT [196400] LOG:  skipping analyze of "sbtest205" --- lock not available
+2026-10-01 22:30:48.714 GMT [196400] LOG:  skipping vacuum of "sbtest222" --- lock not available
+2026-10-01 22:30:48.714 GMT [196400] LOG:  skipping analyze of "sbtest211" --- lock not available
+2026-10-01 22:30:48.714 GMT [196400] LOG:  skipping vacuum of "sbtest231" --- lock not available
+2026-10-01 22:30:48.714 GMT [196400] LOG:  skipping vacuum of "sbtest234" --- lock not available
+2026-10-01 22:30:48.714 GMT [196400] LOG:  skipping vacuum of "sbtest242" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping analyze of "sbtest208" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping analyze of "sbtest244" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping analyze of "sbtest219" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping analyze of "sbtest250" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping vacuum of "sbtest245" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping vacuum of "sbtest218" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping vacuum of "sbtest212" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping vacuum of "sbtest235" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping vacuum of "sbtest202" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping vacuum of "sbtest228" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping vacuum of "sbtest204" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping vacuum of "sbtest203" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping analyze of "sbtest229" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping analyze of "sbtest239" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping analyze of "sbtest226" --- lock not available
+2026-10-01 22:30:48.751 GMT [196400] LOG:  skipping analyze of "sbtest237" --- lock not available
+2026-10-01 22:30:49.195 GMT [196516] WARNING:  permission denied to vacuum "pg_shdescription", skipping it
+2026-10-01 22:30:49.195 GMT [196585] WARNING:  permission denied to vacuum "pg_tablespace", skipping it
+2026-10-01 22:30:49.195 GMT [196583] WARNING:  permission denied to vacuum "pg_auth_members", skipping it
+2026-10-01 22:30:49.195 GMT [196582] WARNING:  permission denied to vacuum "pg_database", skipping it
+2026-10-01 22:30:49.196 GMT [196516] WARNING:  permission denied to vacuum "pg_authid", skipping it
+2026-10-01 22:30:49.196 GMT [196583] WARNING:  permission denied to vacuum "pg_parameter_acl", skipping it
+2026-10-01 22:30:49.196 GMT [196581] WARNING:  permission denied to vacuum "pg_shseclabel", skipping it
+2026-10-01 22:30:49.196 GMT [196579] WARNING:  permission denied to vacuum "pg_replication_origin", skipping it
+2026-10-01 22:30:49.197 GMT [196579] WARNING:  permission denied to vacuum "pg_db_role_setting", skipping it
+2026-10-01 22:30:49.197 GMT [196581] WARNING:  permission denied to vacuum "pg_shdepend", skipping it
+2026-10-01 22:30:49.197 GMT [196511] WARNING:  permission denied to vacuum "pg_subscription", skipping it
+2026-10-01 22:30:55.652 GMT [195606] LOG:  checkpoint complete: wrote 3369516 buffers (12.9%), wrote 5 SLRU buffers; 0 WAL file(s) added, 0 removed, 2155 recycled; write=21.885 s, sync=0.001 s, total=21.904 s; sync files=746, longest=0.001 s, average=0.000 s; distance=35307274 kB, estimate=35349832 kB; lsn=12/A2F8EAB8, redo lsn=10/DA563D20
+2026-10-01 22:30:55.653 GMT [195606] LOG:  checkpoint starting: immediate force wait
+2026-10-01 22:30:58.167 GMT [195606] LOG:  checkpoint complete: wrote 869881 buffers (3.3%), wrote 2 SLRU buffers; 0 WAL file(s) added, 0 removed, 456 recycled; write=2.508 s, sync=0.001 s, total=2.515 s; sync files=437, longest=0.001 s, average=0.000 s; distance=7481515 kB, estimate=32563000 kB; lsn=12/A2FAFB78, redo lsn=12/A2F8EB30
+2026-10-01 22:30:58.170 GMT [195602] LOG:  received fast shutdown request
+2026-10-01 22:30:58.171 GMT [195602] LOG:  aborting any active transactions
+2026-10-01 22:30:58.171 GMT [195602] LOG:  background worker "logical replication launcher" (PID 195611) exited with exit code 1
+2026-10-01 22:30:58.172 GMT [195606] LOG:  shutting down
+2026-10-01 22:30:58.172 GMT [195606] LOG:  checkpoint starting: shutdown immediate
+2026-10-01 22:30:58.473 GMT [195606] LOG:  checkpoint complete: wrote 778 buffers (0.0%), wrote 0 SLRU buffers; 0 WAL file(s) added, 0 removed, 0 recycled; write=0.301 s, sync=0.001 s, total=0.302 s; sync files=10, longest=0.001 s, average=0.000 s; distance=132 kB, estimate=29306713 kB; lsn=12/A2FAFBF0, redo lsn=12/A2FAFBF0
+2026-10-01 22:30:58.475 GMT [195602] LOG:  database system is shut down

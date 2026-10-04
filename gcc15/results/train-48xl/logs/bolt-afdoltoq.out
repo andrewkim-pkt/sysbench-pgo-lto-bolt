@@ -1,0 +1,3 @@
+fdata 1658347 bytes
+BOLT-INFO: 1203 out of 14990 functions in the binary (8.0%) have non-empty execution profile
+afdoltob md5 347bd901b37c  .text 429841

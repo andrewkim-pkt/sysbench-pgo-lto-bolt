@@ -1,0 +1,31 @@
+PERF2BOLT: Starting data aggregation job for work/bolt-pgoltoq.data
+PERF2BOLT: spawning perf job to read branch events
+PERF2BOLT: spawning perf job to read mem events
+PERF2BOLT: spawning perf job to read process events
+PERF2BOLT: spawning perf job to read task events
+BOLT-INFO: Target architecture: x86_64
+BOLT-INFO: BOLT version: c13b7485b87909fcf739f62cfa382b55407433c0
+BOLT-INFO: first alloc address is 0x400000
+BOLT-INFO: creating new program header table at address 0x1200000, offset 0xe00000
+BOLT-INFO: enabling relocation mode
+BOLT-INFO: enabling strict relocation mode for aggregation purposes
+BOLT-WARNING: split function detected on input : get_progname.cold. The support is limited in relocation mode
+BOLT-INFO: pre-processing profile using perf data aggregator
+BOLT-INFO: binary build-id is:     5edb18a669b62a825a28883bdd33a8b62390297e
+PERF2BOLT: spawning perf job to read buildid list
+PERF2BOLT-WARNING: build-id will not be checked because perf data was recorded without it
+PERF2BOLT: waiting for perf mmap events collection to finish...
+PERF2BOLT: parsing perf-script mmap events output
+PERF2BOLT: waiting for perf task events collection to finish...
+PERF2BOLT: parsing perf-script task events output
+PERF2BOLT: input binary is associated with 1230 PID(s)
+PERF2BOLT: waiting for perf events collection to finish...
+PERF2BOLT: parse branch events...
+PERF2BOLT: read 20057411 samples and 640156534 LBR entries
+PERF2BOLT: 302819 samples (1.5%) were ignored
+PERF2BOLT: traces mismatching disassembled function contents: 0 (0.0%)
+PERF2BOLT: out of range traces involving unknown regions: 91458572 (14.7%)
+PERF2BOLT: waiting for perf mem events collection to finish...
+BOLT-INFO: fixed indirect branch detected in pg_get_object_address at 0x7d2507 referencing data at 0xf05df0 the destination value is 0x7d27b8
+PERF2BOLT: processing branch events...
+PERF2BOLT: wrote 29452 objects and 0 memory objects to /home/ec2-user/g15/bolt-pgoltoq/profile.fdata

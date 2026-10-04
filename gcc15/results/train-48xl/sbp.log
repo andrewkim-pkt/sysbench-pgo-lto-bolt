@@ -1,0 +1,164 @@
+=== [22:26:23] sbp start_at=1
+=== [22:26:23] 1 build base prep pgogen
+    [base]     md5                 : 6085cabc1498
+    [base]     .text bytes        : 7033986
+    [base]     smoke              : OK (rows=1000)
+    [base] BUILD_RC=0
+    [prep]     md5                 : e4fce276a431
+    [prep]     .text bytes        : 7033986
+    [prep]     smoke              : OK (rows=1000)
+    [prep] BUILD_RC=0
+    [pgogen]     md5                 : 780a3ca209c8
+    [pgogen]     .text bytes        : 10282962
+    [pgogen]     smoke              : OK (rows=1000)
+    [pgogen] BUILD_RC=0
+=== [22:28:14] 2 dataset 250 x 1M
+hugepages 206 per node: 69 69 68 
+tmpfs           180G     0  180G   0% /mnt/pgramdisk
+CREATE ROLE
+CREATE DATABASE
+init done
+sbtest size: 61 GB
+WARNING:  permission denied to vacuum "pg_shdescription", skipping it
+WARNING:  permission denied to vacuum "pg_tablespace", skipping it
+WARNING:  permission denied to vacuum "pg_auth_members", skipping it
+WARNING:  permission denied to vacuum "pg_database", skipping it
+WARNING:  permission denied to vacuum "pg_authid", skipping it
+WARNING:  permission denied to vacuum "pg_parameter_acl", skipping it
+WARNING:  permission denied to vacuum "pg_shseclabel", skipping it
+WARNING:  permission denied to vacuum "pg_replication_origin", skipping it
+WARNING:  permission denied to vacuum "pg_subscription", skipping it
+WARNING:  permission denied to vacuum "pg_db_role_setting", skipping it
+WARNING:  permission denied to vacuum "pg_shdepend", skipping it
+golden: 126G
+=== [22:31:29] 3 calibrate on base (x400 per process, 120 s settle + 240 s)
+started base md5=6085cabc1498 aff=0-191 max_connections=4000
+1200	69.1	48.2	70876.6	3
+=== [22:39:44] training load 3x400 = 1200 connections
+=== [22:39:44] 4 PGO training (pgogen, 300 s settle + 590 s)
+stale gcda: 850
+cleared
+started pgogen md5=780a3ca209c8 aff=0-191 max_connections=4000
+=== [22:56:34] training: server_busy=87.3% client_busy=20.5% tps=31669.3 errs=3
+stopped
+gcda: 846 (backend 774) size=1688928 backup /home/ec2-user/g15/work/pgogen-gcda-sysbench.tgz
+GCDA_OK
+=== [23:00:07] 5 build pgo pgolto pgoltoq (same tree, in turn)
+    [pgouse]     md5                 : 2e16e7c81ba6
+    [pgouse]     .text bytes        : 7075634
+    [pgouse]     smoke              : OK (rows=1000)
+    [pgouse] BUILD_RC=0
+    [pgolto]     md5                 : 4d540e3d6a61
+    [pgolto]     .text bytes        : 9111682
+    [pgolto]     smoke              : OK (rows=1000)
+    [pgolto] BUILD_RC=0
+    [pgoltoq]     md5                 : 8ca3b1720929
+    [pgoltoq]     .text bytes        : 9111682
+    [pgoltoq]     smoke              : OK (rows=1000)
+    [pgoltoq] BUILD_RC=0
+=== [23:02:31] record afdo prep at 3x400
+started prep md5=e4fce276a431 aff=0-191 max_connections=4000
+perf rc=0 size=22573073572
+=== [23:13:50] afdo prep: server_busy=71.1% client_busy=44.3% tps=65191.2 errs=3
+=== [23:13:50] 7 create_gcov
+afdo profile 1788768 bytes, 1699 functions; top:
+xmin_cmp: total:21507 head:3684 timestamp: 0
+write_relcache_init_file: total:6 head:0 timestamp: 0
+write_item: total:14 head:2 timestamp: 0
+AFDO_OK
+=== [23:21:37] 8 build afdo afdolto afdoltoq
+    [afdo]     md5                 : 116bdf01dd4d
+    [afdo]     .text bytes        : 7236210
+    [afdo]     smoke              : OK (rows=1000)
+    [afdo] BUILD_RC=0
+    [afdolto]     md5                 : 75e183fd7ae0
+    [afdolto]     .text bytes        : 9107090
+    [afdolto]     flag -fauto-profile on compile lines: OK (1298 lines)
+    [afdolto]     smoke              : OK (rows=1000)
+    [afdolto] BUILD_RC=0
+    [afdoltoq]     md5                 : 8a618222404a
+    [afdoltoq]     .text bytes        : 9049474
+    [afdoltoq]     flag -fauto-profile on compile lines: OK (1298 lines)
+    [afdoltoq]     smoke              : OK (rows=1000)
+    [afdoltoq] BUILD_RC=0
+=== [23:24:23] record bolt pgoltoq at 3x400
+started pgoltoq md5=8ca3b1720929 aff=0-191 max_connections=4000
+perf rc=0 size=1992475718
+=== [23:35:38] bolt pgoltoq: server_busy=66.6% client_busy=47.1% tps=69982.0 errs=3
+=== [23:35:38] record bolt afdoltoq at 3x400
+started afdoltoq md5=8a618222404a aff=0-191 max_connections=4000
+perf rc=0 size=1991108332
+=== [23:47:08] bolt afdoltoq: server_busy=69.3% client_busy=45.8% tps=68922.7 errs=3
+=== [23:47:08] 10 bolt pgoltoq
+fdata 1837240 bytes
+BOLT-INFO: 1330 out of 21056 functions in the binary (6.3%) have non-empty execution profile
+pgoltob md5 81a3c772a9b4  .text 482964
+=== [23:53:26] 10 bolt afdoltoq
+fdata 1658347 bytes
+BOLT-INFO: 1203 out of 14990 functions in the binary (8.0%) have non-empty execution profile
+afdoltob md5 347bd901b37c  .text 429841
+base 6085cabc1498 0
+prep e4fce276a431 0
+pgogen 780a3ca209c8 0
+pgo 2e16e7c81ba6 0
+pgolto 4d540e3d6a61 0
+pgoltoq 8ca3b1720929 0
+pgoltob 81a3c772a9b4 1
+afdo 116bdf01dd4d 0
+afdolto 75e183fd7ae0 0
+afdoltoq 8a618222404a 0
+afdoltob 347bd901b37c 1
+=== [23:59:53] 12 benchmark: mirrored, 64 + 128 threads, 120 s warm + 240 s each
+started base md5=6085cabc1498 aff=0-191 max_connections=4000
+A	base	64	5553.3	5.1	2.9	1
+A	base	128	13123.1	10.0	7.0	1
+started afdo md5=116bdf01dd4d aff=0-191 max_connections=4000
+A	afdo	64	5733.9	4.6	3.0	1
+A	afdo	128	13368.9	8.8	7.2	1
+started afdolto md5=75e183fd7ae0 aff=0-191 max_connections=4000
+A	afdolto	64	5647.9	4.4	3.0	1
+A	afdolto	128	13299.0	8.9	7.2	1
+started afdoltob md5=347bd901b37c aff=0-191 max_connections=4000
+A	afdoltob	64	5751.3	4.3	3.0	1
+A	afdoltob	128	13212.1	8.4	7.1	1
+started pgo md5=2e16e7c81ba6 aff=0-191 max_connections=4000
+A	pgo	64	5741.9	4.4	3.0	1
+A	pgo	128	13286.6	8.7	7.0	1
+started pgolto md5=4d540e3d6a61 aff=0-191 max_connections=4000
+A	pgolto	64	5832.3	4.3	3.1	1
+A	pgolto	128	13353.9	8.4	7.2	1
+started pgoltob md5=81a3c772a9b4 aff=0-191 max_connections=4000
+A	pgoltob	64	6074.6	4.3	3.2	1
+A	pgoltob	128	13852.8	8.3	7.6	1
+started pgoltob md5=81a3c772a9b4 aff=0-191 max_connections=4000
+B	pgoltob	64	5820.6	4.3	3.0	1
+B	pgoltob	128	13463.8	8.3	7.2	1
+started pgolto md5=4d540e3d6a61 aff=0-191 max_connections=4000
+B	pgolto	64	5774.5	4.3	3.0	1
+B	pgolto	128	13506.1	8.5	7.2	1
+started pgo md5=2e16e7c81ba6 aff=0-191 max_connections=4000
+B	pgo	64	5927.0	4.5	3.1	1
+B	pgo	128	13473.3	9.0	7.3	1
+started afdoltob md5=347bd901b37c aff=0-191 max_connections=4000
+B	afdoltob	64	5759.1	4.3	3.0	1
+B	afdoltob	128	13847.6	8.4	7.4	1
+started afdolto md5=75e183fd7ae0 aff=0-191 max_connections=4000
+B	afdolto	64	5679.8	4.4	3.0	1
+B	afdolto	128	13158.3	8.8	7.2	1
+started afdo md5=116bdf01dd4d aff=0-191 max_connections=4000
+B	afdo	64	5778.8	4.6	3.0	1
+B	afdo	128	13402.5	9.0	7.2	1
+started base md5=6085cabc1498 aff=0-191 max_connections=4000
+B	base	64	5545.7	5.1	2.9	1
+B	base	128	13235.0	9.9	7.0	1
+=== [03:23:17] 13 summary
+| arm | 64 threads tps | vs base | 128 threads tps | vs base | mean gain | CPU/txn (64 / 128) | busy 64/128 |
+|---|---|---|---|---|---|---|---|
+| base | 5550 | +0.00% | 13179 | +0.00% | +0.00% | +0.0% / +0.0% | 5.1% / 9.9% |
+| afdo | 5756 | +3.73% | 13386 | +1.57% | +2.65% | -13.0% / -11.9% | 4.6% / 8.9% |
+| afdolto | 5664 | +2.06% | 13229 | +0.38% | +1.22% | -15.5% / -11.4% | 4.4% / 8.9% |
+| afdoltob | 5755 | +3.71% | 13530 | +2.66% | +3.18% | -18.7% / -17.8% | 4.3% / 8.4% |
+| pgo | 5834 | +5.13% | 13380 | +1.52% | +3.33% | -17.0% / -12.4% | 4.5% / 8.8% |
+| pgolto | 5803 | +4.58% | 13430 | +1.90% | +3.24% | -19.4% / -16.7% | 4.3% / 8.4% |
+| pgoltob | 5948 | +7.17% | 13658 | +3.64% | +5.41% | -21.3% / -19.5% | 4.3% / 8.3% |
+=== [03:23:17] SBP_DONE

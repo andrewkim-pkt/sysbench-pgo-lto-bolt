@@ -1,0 +1,2 @@
+[ perf record: Woken up 75 times to write data ]
+[ perf record: Captured and wrote 8123.359 MB /home/ec2-user/g15/work-n1/afdo-prep.data ]

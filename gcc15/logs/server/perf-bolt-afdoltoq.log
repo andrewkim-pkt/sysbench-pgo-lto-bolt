@@ -1,0 +1,2 @@
+[ perf record: Woken up 45 times to write data ]
+[ perf record: Captured and wrote 1898.758 MB /home/ec2-user/g15/work/bolt-afdoltoq.data, compressed (original 16708.570 MB, ratio is 8.812) ]

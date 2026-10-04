@@ -1,0 +1,175 @@
+BOLT-INFO: Target architecture: x86_64
+BOLT-INFO: BOLT version: c13b7485b87909fcf739f62cfa382b55407433c0
+BOLT-INFO: first alloc address is 0x400000
+BOLT-INFO: creating new program header table at address 0x1200000, offset 0xe00000
+BOLT-INFO: enabling relocation mode
+BOLT-INFO: enabling lite mode
+BOLT-INFO: pre-processing profile using branch profile reader
+BOLT-INFO: 1203 out of 14990 functions in the binary (8.0%) have non-empty execution profile
+BOLT-INFO: 13 functions with profile could not be optimized
+BOLT-INFO: profile for 1 objects was ignored
+BOLT-INFO: the input contains 300 (dynamic count : 11358992) opportunities for macro-fusion optimization. Will fix instances on a hot path.
+BOLT-INFO: 27811 instructions were shortened
+BOLT-INFO: removed 1307 empty blocks
+BOLT-INFO: basic block reordering modified layout of 710 functions (59.02% of profiled, 4.61% of total)
+BOLT-INFO: splitting separates 389564 hot bytes from 819054 cold bytes (32.23% of split functions is hot).
+BOLT-INFO: 175 Functions were reordered by LoopInversionPass
+BOLT-INFO: program-wide dynostats after all optimizations before SCTC and FOP:
+
+           935238082 : executed forward branches
+           111008558 : taken forward branches
+           239576512 : executed backward branches
+           117846422 : taken backward branches
+            64909499 : executed unconditional branches
+           173669685 : all function calls
+            88780670 : indirect calls
+            34251703 : PLT calls
+          7113672534 : executed instructions
+          1825626474 : executed load instructions
+           915857025 : executed store instructions
+             6591906 : taken jump table branches
+                   0 : taken unknown indirect branches
+          1239724093 : total branches
+           293764479 : taken branches
+           945959614 : non-taken conditional branches
+           228854980 : taken conditional branches
+          1174814594 : all conditional branches
+
+           927774104 : executed forward branches (-0.8%)
+            27088137 : taken forward branches (-75.6%)
+           247040490 : executed backward branches (+3.1%)
+           106248642 : taken backward branches (-9.8%)
+            36594214 : executed unconditional branches (-43.6%)
+           173669685 : all function calls (=)
+            88780670 : indirect calls (=)
+            34251703 : PLT calls (=)
+          7084591284 : executed instructions (-0.4%)
+          1825626474 : executed load instructions (=)
+           915857025 : executed store instructions (=)
+             6591906 : taken jump table branches (=)
+                   0 : taken unknown indirect branches (=)
+          1211408808 : total branches (-2.3%)
+           169930993 : taken branches (-42.2%)
+          1041477815 : non-taken conditional branches (+10.1%)
+           133336779 : taken conditional branches (-41.7%)
+          1174814594 : all conditional branches (=)
+
+BOLT-INFO: SCTC: patched 12 tail calls (12 forward) tail calls (0 backward) from a total of 12 while removing 0 double jumps and removing 9 basic blocks totalling 45 bytes of code. CTCs total execution count is 10477210 and the number of times CTCs are taken is 70337
+BOLT-INFO: padding code to 0x1600000 to accommodate hot text
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-WARNING: [internal-dwarf-error]: unsupported DW_OP encoding.
+BOLT-INFO: setting _end to 0x16f21d4
+BOLT-INFO: setting _end to 0x16f21d4
+BOLT-INFO: setting __hot_start to 0x1400000
+BOLT-INFO: setting __hot_end to 0x1468f11
+BOLT-INFO: patched build-id (flipped last bit)

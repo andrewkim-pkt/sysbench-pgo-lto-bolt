@@ -1,0 +1,166 @@
+2026-10-01 23:25:09.050 GMT [274309] LOG:  starting PostgreSQL 18.3 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 15.2.0, 64-bit
+2026-10-01 23:25:09.050 GMT [274309] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+2026-10-01 23:25:09.050 GMT [274309] LOG:  listening on IPv6 address "::", port 5432
+2026-10-01 23:25:09.050 GMT [274309] LOG:  listening on Unix socket "/tmp/.s.PGSQL.5432"
+2026-10-01 23:25:09.052 GMT [274315] LOG:  database system was shut down at 2026-10-01 22:30:58 GMT
+2026-10-01 23:25:09.054 GMT [274309] LOG:  database system is ready to accept connections
+2026-10-01 23:25:39.433 GMT [274726] ERROR:  duplicate key value violates unique constraint "sbtest9_pkey"
+2026-10-01 23:25:39.433 GMT [274726] DETAIL:  Key (id)=(253495) already exists.
+2026-10-01 23:25:39.433 GMT [274726] STATEMENT:  INSERT INTO sbtest9 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:25:45.276 GMT [274448] ERROR:  duplicate key value violates unique constraint "sbtest147_pkey"
+2026-10-01 23:25:45.276 GMT [274448] DETAIL:  Key (id)=(133777) already exists.
+2026-10-01 23:25:45.276 GMT [274448] STATEMENT:  INSERT INTO sbtest147 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:25:45.991 GMT [275513] ERROR:  duplicate key value violates unique constraint "sbtest18_pkey"
+2026-10-01 23:25:45.991 GMT [275513] DETAIL:  Key (id)=(502037) already exists.
+2026-10-01 23:25:45.991 GMT [275513] STATEMENT:  INSERT INTO sbtest18 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:26:00.357 GMT [275313] ERROR:  duplicate key value violates unique constraint "sbtest153_pkey"
+2026-10-01 23:26:00.357 GMT [275313] DETAIL:  Key (id)=(610724) already exists.
+2026-10-01 23:26:00.357 GMT [275313] STATEMENT:  INSERT INTO sbtest153 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:26:13.058 GMT [274822] ERROR:  duplicate key value violates unique constraint "sbtest112_pkey"
+2026-10-01 23:26:13.058 GMT [274822] DETAIL:  Key (id)=(2715) already exists.
+2026-10-01 23:26:13.058 GMT [274822] STATEMENT:  INSERT INTO sbtest112 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:26:14.965 GMT [274402] ERROR:  duplicate key value violates unique constraint "sbtest225_pkey"
+2026-10-01 23:26:14.965 GMT [274402] DETAIL:  Key (id)=(551295) already exists.
+2026-10-01 23:26:14.965 GMT [274402] STATEMENT:  INSERT INTO sbtest225 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:26:37.494 GMT [274891] ERROR:  duplicate key value violates unique constraint "sbtest122_pkey"
+2026-10-01 23:26:37.494 GMT [274891] DETAIL:  Key (id)=(760010) already exists.
+2026-10-01 23:26:37.494 GMT [274891] STATEMENT:  INSERT INTO sbtest122 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:27:04.650 GMT [275199] ERROR:  duplicate key value violates unique constraint "sbtest206_pkey"
+2026-10-01 23:27:04.650 GMT [275199] DETAIL:  Key (id)=(191789) already exists.
+2026-10-01 23:27:04.650 GMT [275199] STATEMENT:  INSERT INTO sbtest206 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:27:15.571 GMT [274531] ERROR:  duplicate key value violates unique constraint "sbtest221_pkey"
+2026-10-01 23:27:15.571 GMT [274531] DETAIL:  Key (id)=(130943) already exists.
+2026-10-01 23:27:15.571 GMT [274531] STATEMENT:  INSERT INTO sbtest221 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:27:23.147 GMT [274627] ERROR:  duplicate key value violates unique constraint "sbtest114_pkey"
+2026-10-01 23:27:23.147 GMT [274627] DETAIL:  Key (id)=(935544) already exists.
+2026-10-01 23:27:23.147 GMT [274627] STATEMENT:  INSERT INTO sbtest114 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:27:58.077 GMT [274508] ERROR:  duplicate key value violates unique constraint "sbtest230_pkey"
+2026-10-01 23:27:58.077 GMT [274508] DETAIL:  Key (id)=(657507) already exists.
+2026-10-01 23:27:58.077 GMT [274508] STATEMENT:  INSERT INTO sbtest230 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:28:07.853 GMT [275218] ERROR:  duplicate key value violates unique constraint "sbtest136_pkey"
+2026-10-01 23:28:07.853 GMT [275218] DETAIL:  Key (id)=(26874) already exists.
+2026-10-01 23:28:07.853 GMT [275218] STATEMENT:  INSERT INTO sbtest136 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:28:26.024 GMT [275517] ERROR:  duplicate key value violates unique constraint "sbtest67_pkey"
+2026-10-01 23:28:26.024 GMT [275517] DETAIL:  Key (id)=(175470) already exists.
+2026-10-01 23:28:26.024 GMT [275517] STATEMENT:  INSERT INTO sbtest67 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:28:43.817 GMT [275357] ERROR:  duplicate key value violates unique constraint "sbtest7_pkey"
+2026-10-01 23:28:43.817 GMT [275357] DETAIL:  Key (id)=(123054) already exists.
+2026-10-01 23:28:43.817 GMT [275357] STATEMENT:  INSERT INTO sbtest7 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:28:47.705 GMT [275339] ERROR:  duplicate key value violates unique constraint "sbtest239_pkey"
+2026-10-01 23:28:47.705 GMT [275339] DETAIL:  Key (id)=(223642) already exists.
+2026-10-01 23:28:47.705 GMT [275339] STATEMENT:  INSERT INTO sbtest239 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:28:47.795 GMT [274834] ERROR:  duplicate key value violates unique constraint "sbtest41_pkey"
+2026-10-01 23:28:47.795 GMT [274834] DETAIL:  Key (id)=(172438) already exists.
+2026-10-01 23:28:47.795 GMT [274834] STATEMENT:  INSERT INTO sbtest41 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:29:19.098 GMT [274541] ERROR:  duplicate key value violates unique constraint "sbtest21_pkey"
+2026-10-01 23:29:19.098 GMT [274541] DETAIL:  Key (id)=(54527) already exists.
+2026-10-01 23:29:19.098 GMT [274541] STATEMENT:  INSERT INTO sbtest21 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:29:20.218 GMT [275448] ERROR:  duplicate key value violates unique constraint "sbtest99_pkey"
+2026-10-01 23:29:20.218 GMT [275448] DETAIL:  Key (id)=(722338) already exists.
+2026-10-01 23:29:20.218 GMT [275448] STATEMENT:  INSERT INTO sbtest99 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:29:42.249 GMT [274564] ERROR:  duplicate key value violates unique constraint "sbtest25_pkey"
+2026-10-01 23:29:42.249 GMT [274564] DETAIL:  Key (id)=(86451) already exists.
+2026-10-01 23:29:42.249 GMT [274564] STATEMENT:  INSERT INTO sbtest25 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:29:46.488 GMT [274755] ERROR:  duplicate key value violates unique constraint "sbtest227_pkey"
+2026-10-01 23:29:46.488 GMT [274755] DETAIL:  Key (id)=(390206) already exists.
+2026-10-01 23:29:46.488 GMT [274755] STATEMENT:  INSERT INTO sbtest227 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:29:46.723 GMT [275097] ERROR:  duplicate key value violates unique constraint "sbtest20_pkey"
+2026-10-01 23:29:46.723 GMT [275097] DETAIL:  Key (id)=(706113) already exists.
+2026-10-01 23:29:46.723 GMT [275097] STATEMENT:  INSERT INTO sbtest20 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:30:06.039 GMT [274860] ERROR:  duplicate key value violates unique constraint "sbtest124_pkey"
+2026-10-01 23:30:06.039 GMT [274860] DETAIL:  Key (id)=(749877) already exists.
+2026-10-01 23:30:06.039 GMT [274860] STATEMENT:  INSERT INTO sbtest124 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:30:13.458 GMT [274421] ERROR:  duplicate key value violates unique constraint "sbtest120_pkey"
+2026-10-01 23:30:13.458 GMT [274421] DETAIL:  Key (id)=(677120) already exists.
+2026-10-01 23:30:13.458 GMT [274421] STATEMENT:  INSERT INTO sbtest120 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:30:18.784 GMT [275267] ERROR:  duplicate key value violates unique constraint "sbtest35_pkey"
+2026-10-01 23:30:18.784 GMT [275267] DETAIL:  Key (id)=(385770) already exists.
+2026-10-01 23:30:18.784 GMT [275267] STATEMENT:  INSERT INTO sbtest35 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:30:35.198 GMT [274615] ERROR:  duplicate key value violates unique constraint "sbtest57_pkey"
+2026-10-01 23:30:35.198 GMT [274615] DETAIL:  Key (id)=(639306) already exists.
+2026-10-01 23:30:35.198 GMT [274615] STATEMENT:  INSERT INTO sbtest57 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:30:48.399 GMT [275390] ERROR:  duplicate key value violates unique constraint "sbtest145_pkey"
+2026-10-01 23:30:48.399 GMT [275390] DETAIL:  Key (id)=(980445) already exists.
+2026-10-01 23:30:48.399 GMT [275390] STATEMENT:  INSERT INTO sbtest145 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:30:48.494 GMT [274591] ERROR:  duplicate key value violates unique constraint "sbtest25_pkey"
+2026-10-01 23:30:48.494 GMT [274591] DETAIL:  Key (id)=(59317) already exists.
+2026-10-01 23:30:48.494 GMT [274591] STATEMENT:  INSERT INTO sbtest25 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:30:56.182 GMT [275274] ERROR:  duplicate key value violates unique constraint "sbtest235_pkey"
+2026-10-01 23:30:56.182 GMT [275274] DETAIL:  Key (id)=(561029) already exists.
+2026-10-01 23:30:56.182 GMT [275274] STATEMENT:  INSERT INTO sbtest235 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:31:17.328 GMT [275116] ERROR:  duplicate key value violates unique constraint "sbtest248_pkey"
+2026-10-01 23:31:17.328 GMT [275116] DETAIL:  Key (id)=(688749) already exists.
+2026-10-01 23:31:17.328 GMT [275116] STATEMENT:  INSERT INTO sbtest248 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:31:20.623 GMT [275519] ERROR:  duplicate key value violates unique constraint "sbtest94_pkey"
+2026-10-01 23:31:20.623 GMT [275519] DETAIL:  Key (id)=(780668) already exists.
+2026-10-01 23:31:20.623 GMT [275519] STATEMENT:  INSERT INTO sbtest94 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:31:33.610 GMT [274820] ERROR:  duplicate key value violates unique constraint "sbtest73_pkey"
+2026-10-01 23:31:33.610 GMT [274820] DETAIL:  Key (id)=(828621) already exists.
+2026-10-01 23:31:33.610 GMT [274820] STATEMENT:  INSERT INTO sbtest73 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:31:59.286 GMT [274588] ERROR:  duplicate key value violates unique constraint "sbtest122_pkey"
+2026-10-01 23:31:59.286 GMT [274588] DETAIL:  Key (id)=(837118) already exists.
+2026-10-01 23:31:59.286 GMT [274588] STATEMENT:  INSERT INTO sbtest122 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:32:02.230 GMT [274686] ERROR:  duplicate key value violates unique constraint "sbtest57_pkey"
+2026-10-01 23:32:02.230 GMT [274686] DETAIL:  Key (id)=(56211) already exists.
+2026-10-01 23:32:02.230 GMT [274686] STATEMENT:  INSERT INTO sbtest57 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:32:09.805 GMT [274466] ERROR:  duplicate key value violates unique constraint "sbtest183_pkey"
+2026-10-01 23:32:09.805 GMT [274466] DETAIL:  Key (id)=(759920) already exists.
+2026-10-01 23:32:09.805 GMT [274466] STATEMENT:  INSERT INTO sbtest183 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:32:15.542 GMT [275338] ERROR:  duplicate key value violates unique constraint "sbtest198_pkey"
+2026-10-01 23:32:15.542 GMT [275338] DETAIL:  Key (id)=(888593) already exists.
+2026-10-01 23:32:15.542 GMT [275338] STATEMENT:  INSERT INTO sbtest198 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:32:21.725 GMT [275006] ERROR:  duplicate key value violates unique constraint "sbtest94_pkey"
+2026-10-01 23:32:21.725 GMT [275006] DETAIL:  Key (id)=(626197) already exists.
+2026-10-01 23:32:21.725 GMT [275006] STATEMENT:  INSERT INTO sbtest94 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:32:34.780 GMT [275338] ERROR:  duplicate key value violates unique constraint "sbtest7_pkey"
+2026-10-01 23:32:34.780 GMT [275338] DETAIL:  Key (id)=(471366) already exists.
+2026-10-01 23:32:34.780 GMT [275338] STATEMENT:  INSERT INTO sbtest7 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:32:52.797 GMT [274313] LOG:  checkpoint starting: wal
+2026-10-01 23:33:08.785 GMT [275049] ERROR:  duplicate key value violates unique constraint "sbtest57_pkey"
+2026-10-01 23:33:08.785 GMT [275049] DETAIL:  Key (id)=(731613) already exists.
+2026-10-01 23:33:08.785 GMT [275049] STATEMENT:  INSERT INTO sbtest57 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:33:33.585 GMT [275259] ERROR:  duplicate key value violates unique constraint "sbtest40_pkey"
+2026-10-01 23:33:33.585 GMT [275259] DETAIL:  Key (id)=(5541) already exists.
+2026-10-01 23:33:33.585 GMT [275259] STATEMENT:  INSERT INTO sbtest40 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:33:42.161 GMT [274531] ERROR:  duplicate key value violates unique constraint "sbtest229_pkey"
+2026-10-01 23:33:42.161 GMT [274531] DETAIL:  Key (id)=(103199) already exists.
+2026-10-01 23:33:42.161 GMT [274531] STATEMENT:  INSERT INTO sbtest229 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:33:51.942 GMT [275166] ERROR:  duplicate key value violates unique constraint "sbtest18_pkey"
+2026-10-01 23:33:51.942 GMT [275166] DETAIL:  Key (id)=(123336) already exists.
+2026-10-01 23:33:51.942 GMT [275166] STATEMENT:  INSERT INTO sbtest18 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:34:05.747 GMT [274810] ERROR:  duplicate key value violates unique constraint "sbtest94_pkey"
+2026-10-01 23:34:05.747 GMT [274810] DETAIL:  Key (id)=(10416) already exists.
+2026-10-01 23:34:05.747 GMT [274810] STATEMENT:  INSERT INTO sbtest94 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:34:07.029 GMT [274648] ERROR:  duplicate key value violates unique constraint "sbtest98_pkey"
+2026-10-01 23:34:07.029 GMT [274648] DETAIL:  Key (id)=(604046) already exists.
+2026-10-01 23:34:07.029 GMT [274648] STATEMENT:  INSERT INTO sbtest98 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:34:09.856 GMT [274509] ERROR:  duplicate key value violates unique constraint "sbtest17_pkey"
+2026-10-01 23:34:09.856 GMT [274509] DETAIL:  Key (id)=(208471) already exists.
+2026-10-01 23:34:09.856 GMT [274509] STATEMENT:  INSERT INTO sbtest17 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:34:10.783 GMT [275303] ERROR:  duplicate key value violates unique constraint "sbtest143_pkey"
+2026-10-01 23:34:10.783 GMT [275303] DETAIL:  Key (id)=(183736) already exists.
+2026-10-01 23:34:10.783 GMT [275303] STATEMENT:  INSERT INTO sbtest143 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:34:16.121 GMT [274483] ERROR:  duplicate key value violates unique constraint "sbtest15_pkey"
+2026-10-01 23:34:16.121 GMT [274483] DETAIL:  Key (id)=(757677) already exists.
+2026-10-01 23:34:16.121 GMT [274483] STATEMENT:  INSERT INTO sbtest15 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:34:36.081 GMT [275498] ERROR:  duplicate key value violates unique constraint "sbtest246_pkey"
+2026-10-01 23:34:36.081 GMT [275498] DETAIL:  Key (id)=(862515) already exists.
+2026-10-01 23:34:36.081 GMT [275498] STATEMENT:  INSERT INTO sbtest246 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:34:43.529 GMT [274791] ERROR:  duplicate key value violates unique constraint "sbtest198_pkey"
+2026-10-01 23:34:43.529 GMT [274791] DETAIL:  Key (id)=(489297) already exists.
+2026-10-01 23:34:43.529 GMT [274791] STATEMENT:  INSERT INTO sbtest198 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:34:44.148 GMT [275504] ERROR:  duplicate key value violates unique constraint "sbtest107_pkey"
+2026-10-01 23:34:44.148 GMT [275504] DETAIL:  Key (id)=(664165) already exists.
+2026-10-01 23:34:44.148 GMT [275504] STATEMENT:  INSERT INTO sbtest107 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:35:08.419 GMT [274432] ERROR:  duplicate key value violates unique constraint "sbtest53_pkey"
+2026-10-01 23:35:08.419 GMT [274432] DETAIL:  Key (id)=(957411) already exists.
+2026-10-01 23:35:08.419 GMT [274432] STATEMENT:  INSERT INTO sbtest53 (id, k, c, pad) VALUES ($1, $2, $3, $4)
+2026-10-01 23:35:13.862 GMT [274309] LOG:  received fast shutdown request
+2026-10-01 23:35:13.862 GMT [274309] LOG:  aborting any active transactions
+2026-10-01 23:35:13.863 GMT [274309] LOG:  background worker "logical replication launcher" (PID 274318) exited with exit code 1
+2026-10-01 23:35:13.866 GMT [276185] FATAL:  terminating autovacuum process due to administrator command
+2026-10-01 23:35:32.070 GMT [274313] LOG:  checkpoint complete: wrote 9925440 buffers (37.9%), wrote 1991 SLRU buffers; 0 WAL file(s) added, 0 removed, 2155 recycled; write=159.224 s, sync=0.001 s, total=159.274 s; sync files=1292, longest=0.001 s, average=0.000 s; distance=35297427 kB, estimate=35297427 kB; lsn=1D/68CADFC8, redo lsn=1B/D5D4988
+2026-10-01 23:35:32.070 GMT [274313] LOG:  shutting down
+2026-10-01 23:35:32.070 GMT [274313] LOG:  checkpoint starting: shutdown immediate
+2026-10-01 23:35:38.425 GMT [274313] LOG:  checkpoint complete: wrote 2241642 buffers (8.6%), wrote 302 SLRU buffers; 0 WAL file(s) added, 0 removed, 603 recycled; write=6.347 s, sync=0.001 s, total=6.355 s; sync files=704, longest=0.001 s, average=0.000 s; distance=9886565 kB, estimate=32756341 kB; lsn=1D/68CAE058, redo lsn=1D/68CAE058
+2026-10-01 23:35:38.428 GMT [274309] LOG:  database system is shut down
